@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store'
 
 import { addBooking } from '@/redux/features/bookSlice'
-import { BookingItem } from '../../../interface'
+// import { BookingItem } from '../../../interface'
 
 
 function page() {

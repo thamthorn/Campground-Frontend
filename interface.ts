@@ -1,4 +1,4 @@
-export interface HospitalItem {
+interface HospitalItem {
     _id: string,
     name: string,
     address: string,
@@ -11,7 +11,7 @@ export interface HospitalItem {
     id: string
   }
   
-export interface HospitalJson {
+interface HospitalJson {
     map(arg0: (hospital: any) => import("react").JSX.Element): import("react").ReactNode;
     success: boolean,
     count: number,
@@ -19,7 +19,7 @@ export interface HospitalJson {
     data: HospitalItem[]
   }
 
-export interface BookingItem {
+interface BookingItem {
     name: string;
     surname: string;
     id: string;

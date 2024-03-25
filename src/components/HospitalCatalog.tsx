@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import Card from './Card'
-import { HospitalItem, HospitalJson } from '../../interface';
 
-async function HospitalCatalog({hospitalsJson} : {hospitalsJson: HospitalJson}) {
+async function HospitalCatalog({hospitalsJson} : {hospitalsJson: Promise<HospitalJson>}) {
 
   const hospitalJsonReady = await hospitalsJson;
 

@@ -4,6 +4,7 @@ import getHospitals from '@/libs/getHospitals';
 import { LinearProgress } from '@mui/material';
 import { Suspense } from 'react';
 
+
 function page() {
   
   const hospitals = getHospitals();
