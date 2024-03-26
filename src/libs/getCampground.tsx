@@ -1,4 +1,4 @@
-async function getHospital(id: string) {
+async function getCampground(id: string) {
   const response = await fetch(`https://presentation-day-1-duckdaan.vercel.app/api/v1/campgrounds${id}`)
 
   if(!response.ok){
@@ -9,4 +9,4 @@ async function getHospital(id: string) {
   return await response.json();
 }
 
-export default getHospital
+export default getCampground
