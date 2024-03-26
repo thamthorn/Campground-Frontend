@@ -26,11 +26,14 @@ function DateReserve({onChangeDate, onChangeCampground}: {onChangeDate: Function
             id='campground' className='w-2/4 h-[2em]'
             value={campground}
             onChange={(e) => {setCampground(e.target.value) ; onChangeCampground(e.target.value)}}>
-            {/* <MenuItem value={'Chula'}>Chulalongkorn Hospital</MenuItem>
-            <MenuItem value={'Rajavithi'}>Rajavithi Hospital</MenuItem>
-            <MenuItem value={'Thammasat'}>Thammasat University Hospital</MenuItem>
-             */}
-             <SelectMenuItem/>
+            <MenuItem value={'16:00-16:30'}>16:00-16:30</MenuItem>
+            <MenuItem value={'16:30-17:00'}>16:30-17:00</MenuItem>
+            <MenuItem value={'17:00-17:30'}>17:00-17:30</MenuItem>
+            <MenuItem value={'17:00-17:30'}>17:30-18:00</MenuItem>
+            <MenuItem value={'17:00-17:30'}>18:00-18:30</MenuItem>
+            <MenuItem value={'17:00-17:30'}>18:30-19:00</MenuItem>
+             
+             
         </Select>
       
     </div>

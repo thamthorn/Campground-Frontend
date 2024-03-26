@@ -74,7 +74,7 @@ function page() {
 
       <TextField name='Name' label='Name' variant='standard' onChange={(e) => {setName(e.target.value)}}></TextField>
       <TextField name='Lastname' label='Lastname' variant='standard' onChange={(e) => {setLastName(e.target.value)}}></TextField>
-      <TextField name='Citizen ID' label='Citizen ID' variant='standard' onChange={(e) => {setCitizenId(e.target.value)}}></TextField>
+      <TextField name='Citizen ID' label='Campground Name' variant='standard' onChange={(e) => {setCitizenId(e.target.value)}}></TextField>
 
 
       <DateReserve onChangeDate={(value: Dayjs) => { setDate(value) } } onChangeCampground={(value: string) => { setCampground(value) } }/>
