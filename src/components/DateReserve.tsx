@@ -11,7 +11,7 @@ function DateReserve({onChangeDate, onChangeCampground}: {onChangeDate: Function
 
   const [date, setDate] = useState<Dayjs | null>(null)
   const [campground, setCampground] = useState('');
-  
+
 
 
   return (
@@ -26,13 +26,13 @@ function DateReserve({onChangeDate, onChangeCampground}: {onChangeDate: Function
             id='campground' className='w-2/4 h-[2em]'
             value={campground}
             onChange={(e) => {setCampground(e.target.value) ; onChangeCampground(e.target.value)}}>
-            {/* <MenuItem value={'Chula'}>Chulalongkorn Hospital</MenuItem>
-            <MenuItem value={'Rajavithi'}>Rajavithi Hospital</MenuItem>
-            <MenuItem value={'Thammasat'}>Thammasat University Hospital</MenuItem>
-             */}
-             <SelectMenuItem/>
+            <MenuItem value={'Chula'}>16:00-16:30</MenuItem>
+            <MenuItem value={'Rajavithi'}>16:30-17:00</MenuItem>
+            <MenuItem value={'Thammasat'}>17:00-17:30</MenuItem>
+
+
         </Select>
-      
+
     </div>
   )
 }
