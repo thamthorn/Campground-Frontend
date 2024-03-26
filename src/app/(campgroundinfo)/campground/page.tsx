@@ -1,20 +1,20 @@
 import CardPanel from '@/components/CardPanel';
-import HospitalCatalog from '@/components/CampgroundCatalog';
-import getHospitals from '@/libs/getCampgrounds';
+import CampgroundCatalog from '@/components/CampgroundCatalog';
+import getCampgrounds from '@/libs/getCampgrounds';
 import { LinearProgress } from '@mui/material';
 import { Suspense } from 'react';
 
 
 function page() {
   
-  const hospitals = getHospitals();
+  const campgrounds = getCampgrounds();
 
   return (
     <main>
-      <h1 className='text-center text-4xl p-10'>Select your hospitals</h1>
+      <h1 className='text-center text-4xl p-10'>Select your campgrounds</h1>
       {/* <CardPanel /> */}
       <Suspense fallback={<p>Loading...<LinearProgress/></p>}>
-        <HospitalCatalog campgroundsJson={hospitals} />
+        <CampgroundCatalog campgroundsJson={campgrounds} />
 
       </Suspense>
     </main>
