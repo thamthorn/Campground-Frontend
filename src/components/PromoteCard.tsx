@@ -16,7 +16,7 @@ function PromoteCard() {
   return (
     <div className="w-[80%] shadow-lg mx-[10%] my-10 p-2 rounded-lg bg-gray-200
     flex flex-row">
-    <VideoPlayer vdoSrc={'/vdo/getvaccine.mp4'} isPlaying={playing}></VideoPlayer>
+    <VideoPlayer vdoSrc={'/vdo/Campgroundvid.mp4'} isPlaying={playing}></VideoPlayer>
     <div className="m-5">
         Get your vaccine today
         <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3
