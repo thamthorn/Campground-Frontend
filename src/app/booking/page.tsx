@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store'
 
 import { addBooking } from '@/redux/features/bookSlice'
+import getCampgrounds from '@/libs/getCampgrounds'
 // import { BookingItem } from '../../../interface'
 
 
@@ -40,6 +41,7 @@ function page() {
     }
     
   }
+  
 
   // const session = await getServerSession(authOptions);
   // if(!session || !session.user.token) return null
@@ -56,7 +58,7 @@ function page() {
   return (
     <main className='w-[100%] flex flex-col items-center space-y-4 '>
       <div className='text-xl font-medium'>
-        Vaccine Booking
+        Campground Booking
       </div>
       {/* <div className='bg-slate-100 rounded-lg'>
       <div className='text-2xl text-center'>{profile.data.name}</div>
@@ -75,11 +77,11 @@ function page() {
       <TextField name='Citizen ID' label='Citizen ID' variant='standard' onChange={(e) => {setCitizenId(e.target.value)}}></TextField>
 
 
-      <DateReserve onChangeDate={(value: Dayjs) => {setDate(value)}} onChangeCampground={(value: string) => {setCampground(value)}}/>
+      <DateReserve onChangeDate={(value: Dayjs) => { setDate(value) } } onChangeCampground={(value: string) => { setCampground(value) } }/>
       
       <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
       shodow-sm text-white' name='Book Vaccine'
-      onClick={makeBooking}>Book Vaccine</button>
+      onClick={makeBooking}>Book Campground</button>
     </main>
   )
 }
