@@ -3,6 +3,9 @@ const nextConfig = {
     images: {
         domains: ['drive.usercontent.google.com','drive.google.com']
     },
+    experimental: {
+        serverActions:true
+    },
     async headers() {
         return [
             {

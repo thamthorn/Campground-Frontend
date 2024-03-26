@@ -5,10 +5,14 @@ import Image from 'next/image'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 // import { Link } from '@mui/material'
 import Link from 'next/link';
+import getUserProfile from '@/libs/getUserProfile'
 
 async function TopMenu() {
 
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
+  console.log(session)
+  
+  // const profile = await getUserProfile(session.user.token)
 
   return (
     <div className={styles.menucontainer}>
