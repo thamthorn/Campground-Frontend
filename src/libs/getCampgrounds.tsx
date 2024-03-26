@@ -1,6 +1,6 @@
 import Campground from "@/db/models/Campgrounds";
 
-async function getHospitals() {
+async function getCampground() {
 
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
