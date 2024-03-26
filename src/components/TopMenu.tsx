@@ -11,7 +11,7 @@ async function TopMenu() {
 
   const session = await getServerSession(authOptions);
   console.log(session)
-
+  
   // const profile = await getUserProfile(session.user.token)
 
   return (
