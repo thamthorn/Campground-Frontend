@@ -41,7 +41,7 @@ export default async function DashboardPage () {
     return (
 
         <main className="bg-slate-100">
-            <div>Your Dashboard</div>
+            <div className="m-8 text-center text-4xl font-medium">Your Dashboard</div>
             <div className='bg-slate-100 rounded-lg'>
             <div className='text-2xl text-center'>{profile.data.name}</div>
             <table className='table-auto border-separate border-spacing-2'>
