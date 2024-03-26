@@ -14,7 +14,7 @@ function page() {
       <h1 className='text-center text-4xl p-10'>Select your hospitals</h1>
       {/* <CardPanel /> */}
       <Suspense fallback={<p>Loading...<LinearProgress/></p>}>
-        <HospitalCatalog hospitalsJson={hospitals} />
+        <HospitalCatalog campgroundsJson={hospitals} />
 
       </Suspense>
     </main>

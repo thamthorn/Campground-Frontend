@@ -1,4 +1,4 @@
-async function getHospitals() {
+async function getCampgrounds() {
 
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
@@ -9,4 +9,4 @@ async function getHospitals() {
     return await response.json();
 }
 
-export default getHospitals
+export default getCampgrounds

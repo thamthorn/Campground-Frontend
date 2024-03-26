@@ -7,10 +7,10 @@ import Rating from '@mui/material/Rating'
 import React from 'react';
 
 
-function Card({hospitalName, imgSrc, star, onChangeStar}: {hospitalName: string, imgSrc: string, star?: number, onChangeStar?: Function}) {
+function Card({campgroundName, imgSrc, star, onChangeStar}: {campgroundName: string, imgSrc: string, star?: number, onChangeStar?: Function}) {
 
   return (
-    <InteractiveCard contentName={hospitalName}>
+    <InteractiveCard contentName={campgroundName}>
       <div className='w-full h-[70%] relative rounded-t-lg'>
         <Image src={imgSrc}
         alt='product picture'
@@ -19,11 +19,11 @@ function Card({hospitalName, imgSrc, star, onChangeStar}: {hospitalName: string,
         className='object-cover rounded-t-lg'/>
       </div>
       <div className='w-full h-[15%] p-[16px]'>
-        {hospitalName}
-        {/* <Rating id={hospitalName + ' Rating'} 
+        {campgroundName}
+        {/* <Rating id={campgroundName + ' Rating'} 
         className='h-[10%] p-[10px]' 
-        name={hospitalName + ' Rating'} 
-        data-testid={hospitalName + ' Rating'} 
+        name={campgroundName + ' Rating'} 
+        data-testid={campgroundName + ' Rating'} 
         value={5}
         onChange={handleRatingChange}/> */}
       
@@ -31,23 +31,23 @@ function Card({hospitalName, imgSrc, star, onChangeStar}: {hospitalName: string,
       
       {
         onChangeStar? <Rating
-        name={hospitalName + ' Rating'}
+        name={campgroundName + ' Rating'}
         className='h-[15%] p-[10px]'
-        id={hospitalName + ' Rating'}
+        id={campgroundName + ' Rating'}
         // defaultValue={star}
         value={star}
         
         onChange={(e, newValue) => {
           console.log('Changing')
-          onChangeStar(hospitalName, newValue);
+          onChangeStar(campgroundName, newValue);
         }}
         onClick={(e) => {
           console.log('preventing default')
           e.stopPropagation();
-          // onChangeStar(hospitalName, newValue);
+          // onChangeStar(campgroundName, newValue);
         }}
         
-        data-testid={hospitalName + ' Rating'}
+        data-testid={campgroundName + ' Rating'}
 
         // onChange={(newValue) => {
         //   setValue(newValue);

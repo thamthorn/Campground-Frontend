@@ -20,12 +20,12 @@ function page() {
   const dispatch = useDispatch<AppDispatch>()
 
   const makeBooking = () => {
-    if(name && lastName && citizenId && hospital && date) {
+    if(name && lastName && citizenId && campground && date) {
       const item: BookingItem = {
         name: name,
         surname: lastName,
         id: citizenId,
-        hospital: hospital,
+        campground: campground,
         bookDate: dayjs(date).format("YYYY/MM/DD")
       }
 
@@ -34,7 +34,7 @@ function page() {
       setName('');
     setLastName('');
     setCitizenId('');
-    setHospital('');
+    setCampground('');
     setDate(null);
 
     }
@@ -50,7 +50,7 @@ function page() {
   const [name, setName] = useState<string | null>(null);
   const [lastName, setLastName] = useState<string | null>(null);
   const [citizenId, setCitizenId] = useState<string | null>(null);
-  const [hospital, setHospital] = useState<string | null>(null)
+  const [campground, setCampground] = useState<string | null>(null)
   const [date, setDate] = useState<Dayjs | null>(null);
 
   return (
@@ -75,7 +75,7 @@ function page() {
       <TextField name='Citizen ID' label='Citizen ID' variant='standard' onChange={(e) => {setCitizenId(e.target.value)}}></TextField>
 
 
-      <DateReserve onChangeDate={(value: Dayjs) => {setDate(value)}} onChangeHospital={(value: string) => {setHospital(value)}}/>
+      <DateReserve onChangeDate={(value: Dayjs) => {setDate(value)}} onChangeCampground={(value: string) => {setCampground(value)}}/>
       
       <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
       shodow-sm text-white' name='Book Vaccine'
