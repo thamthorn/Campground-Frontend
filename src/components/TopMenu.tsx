@@ -19,7 +19,7 @@ async function TopMenu() {
       <div className='flex flex-row absolute left-0 h-full'>
     {
       session? <Link href="/api/auth/signout"><div className='flex items-center left-0 h-full px-2 
-       right-0 text-cyan-600 text-sm'>Sign-Out of {session.user?.name}</div></Link>
+       right-0 text-cyan-600 text-sm'>Sign-Out of {session.user?.user.name}</div></Link>
       :<Link href="/api/auth/signin"><div className='flex items-center right-0 h-full px-2 left-0 text-cyan-600 text-sm'>Sign-in</div></Link>
       }
       <TopmenuItem title='MyBooking' pageRef='/mybooking'/>

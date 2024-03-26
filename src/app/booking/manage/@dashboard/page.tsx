@@ -78,14 +78,17 @@ export default async function DashboardPage () {
                     </div>
 
                     <div className="flex items-center w-1/2 my-2">
-                        <label className="w-auto block text-gray-700 pr-4" htmlFor="name">Price</label>
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="name">Rating</label>
                         <input type="number" required id="rating" name="rating" placeholder="CampGround rating(0-5)" className="bg-white border-2 border-gray-200 rounded w-full p-2 text-gray-700 focus:outline-none focus:border-blue-400"/>
                     </div>
 
                     <div className="flex items-center w-1/2 my-2">
-                        <label className="w-auto block text-gray-700 pr-4" htmlFor="name">Price</label>
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="name">Picture Link</label>
                         <input type="text" required id="picture" name="picture" placeholder="CampGround Picture Link" className="bg-white border-2 border-gray-200 rounded w-full p-2 text-gray-700 focus:outline-none focus:border-blue-400"/>
                     </div>
+                    <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+      shodow-sm text-white' type="submit"
+      >Create Campground</button>
                 </form>
                 :null
             }

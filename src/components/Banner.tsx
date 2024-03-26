@@ -41,7 +41,7 @@ function Banner() {
       </div>
       {
         session? <div className='z-30 absolute top-5 right-10 font-semibold text-cyan-800 text-xl'>
-          Welcome {session.user?.name}
+          Welcome {session.user?.user.name}
         </div>:null
       }
 
