@@ -31,6 +31,12 @@ function page() {
 
       dispatch(addBooking(item))
 
+      setName('');
+    setLastName('');
+    setCitizenId('');
+    setHospital('');
+    setDate(null);
+
     }
     
   }

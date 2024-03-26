@@ -3,7 +3,8 @@ import TopmenuItem from './TopmenuItem'
 import styles from './topmenu.module.css'
 import Image from 'next/image'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import { Link } from '@mui/material'
+// import { Link } from '@mui/material'
+import Link from 'next/link';
 
 async function TopMenu() {
 
@@ -22,15 +23,14 @@ async function TopMenu() {
     </div>
 
       <TopmenuItem title='Booking' pageRef='/booking' />
+      <Link href={'/'}>
       <Image src={'/img/logo.png'}
       className={styles.logoimg}
       alt='logo'
       width={0}
       height={0}
-      sizes='100vh'/>
-
-    
-    
+      sizes='10vh'/>
+      </Link>
     </div>
   )
 }
