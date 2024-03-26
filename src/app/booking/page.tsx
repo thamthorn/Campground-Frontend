@@ -56,7 +56,7 @@ function page() {
   const [date, setDate] = useState<Dayjs | null>(null);
 
   return (
-    <main className='w-[100%] flex flex-col items-center space-y-4 '>
+    <main className='w-[100%] flex flex-col items-center space-y-4 m-16'>
       <div className='text-xl font-medium'>
         Campground Booking
       </div>
