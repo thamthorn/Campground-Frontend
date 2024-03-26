@@ -56,7 +56,7 @@ function page() {
   const [date, setDate] = useState<Dayjs | null>(null);
   
   return (
-    <main className='w-[100%] flex flex-col items-center space-y-4 '>
+    <main className='w-[100%] flex flex-col items-center space-y-4 m-16'>
       <div className='text-xl font-medium'>
         Campground Booking
       </div>
@@ -74,7 +74,7 @@ function page() {
 
       <TextField name='Name' label='Name' variant='standard' onChange={(e) => {setName(e.target.value)}}></TextField>
       <TextField name='Lastname' label='Lastname' variant='standard' onChange={(e) => {setLastName(e.target.value)}}></TextField>
-      <TextField name='Citizen ID' label='Citizen ID' variant='standard' onChange={(e) => {setCitizenId(e.target.value)}}></TextField>
+      <TextField name='Citizen ID' label='Campground Name' variant='standard' onChange={(e) => {setCitizenId(e.target.value)}}></TextField>
 
 
       <DateReserve onChangeDate={(value: Dayjs) => { setDate(value) } } onChangeCampground={(value: string) => { setCampground(value) } }/>
