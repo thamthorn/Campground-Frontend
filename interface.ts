@@ -1,28 +1,27 @@
-interface HospitalItem {
+interface CampgroundItem {
     _id: string,
     name: string,
     address: string,
-    district: string,
-    province: string,
-    postalcode: string,
     tel: string,
+    price: Number,
+    rating: Number,
     picture: string,
     __v: number,
     id: string
   }
   
-interface HospitalJson {
-    map(arg0: (hospital: any) => import("react").JSX.Element): import("react").ReactNode;
+interface CampgroundJson {
+    map(arg0: (campground: any) => import("react").JSX.Element): import("react").ReactNode;
     success: boolean,
     count: number,
     pagination: Object,
-    data: HospitalItem[]
+    data: CampgroundItem[]
   }
 
 interface BookingItem {
     name: string;
     surname: string;
     id: string;
-    hospital: string;
+    campground: string;
     bookDate: string;
   }

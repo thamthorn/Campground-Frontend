@@ -29,25 +29,25 @@ function Banner() {
       style={{opacity: 0.6}}/>
 
       <div>
-      <h1 className={styles.headerText}>Vaccine Service Center</h1>
+      <h1 className={styles.headerText}>Campground Service Center</h1>
 
       </div>
 
       
       <div className={styles.bannerText}>
-        <h1 className='text-4xl font-medium'> About us</h1>
-        <h3 className='text-xl font serif'> เรามุ่งมั่นในการสร้างสังคมที่ปลอดภัยและมีสุขภาพดี โรงพยาบาลของเรายินดีที่จะประกาศให้ทราบว่าเราได้เริ่มการให้บริการวัคซีนเพื่อป้องกันโรคที่สามารถป้องกันได้ด้วยวัคซีนทั้งหมดที่ได้รับการอนุมัติจากหน่วยงานที่เกี่ยวข้อง</h3>
+        <h1 className='text-4xl font-medium'>About us</h1>
+        <h3 className='text-xl font serif'>Escape the city and embrace nature at our Campground.</h3>
+        
       </div>
-
       {
         session? <div className='z-30 absolute top-5 right-10 font-semibold text-cyan-800 text-xl'>
           Welcome {session.user?.name}
         </div>:null
       }
 
-      <button className='bg-white text-black-600 border border-black-500 
-      font-semibold py-2 px-2 m-2 rounded z-30 absolute bottom-0 right-0 hover:bg-cyan-600 hover:text-white hover:border-transparent'
-      onClick={(e) => {e.stopPropagation(); router.push('/hospital')}}>Select hospital</button>
+      <button className='bg-white text-black-600 border border-black-500 text-5xl
+      font-semibold py-2 px-2 m-2 rounded-lg z-30 absolute bottom-0 right-0 hover:bg-teal-900 hover:text-white hover:border-transparent'
+      onClick={(e) => {e.stopPropagation(); router.push('/campground')}}>Book Now!!</button>
       
 
       

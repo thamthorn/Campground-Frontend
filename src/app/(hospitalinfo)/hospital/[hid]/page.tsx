@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import getHospital from '@/libs/getHospital';
+import getHospital from '@/libs/getCampground';
 import CardPanel from '@/components/CardPanel';
 import Link from 'next/link';
 

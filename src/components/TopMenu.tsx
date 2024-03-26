@@ -24,7 +24,7 @@ async function TopMenu() {
 
       <TopmenuItem title='Booking' pageRef='/booking' />
       <Link href={'/'}>
-      <Image src={'/img/logo.png'}
+      <Image src={'/img/campgroundLogo.jpg'}
       className={styles.logoimg}
       alt='logo'
       width={0}
