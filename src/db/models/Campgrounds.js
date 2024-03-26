@@ -40,5 +40,5 @@ const CampgroundSchema = new mongoose.Schema({
     toObject:{virtuals:true}
 });
 
-const Campground = mongoose.models.Campground || mongoose.model("Campgrounds",CampgroundSchema)
+const Campground = mongoose.models.Campground || mongoose.model("Campground",CampgroundSchema)
 export default Campground
