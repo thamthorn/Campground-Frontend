@@ -11,7 +11,7 @@ function page() {
 
   return (
     <main>
-      <h1 className='text-center text-4xl p-10'>Select your campgrounds</h1>
+      <h1 className='text-center text-4xl p-10 m-12'>Select your campgrounds</h1>
       {/* <CardPanel /> */}
       <Suspense fallback={<p>Loading...<LinearProgress/></p>}>
         <CampgroundCatalog campgroundsJson={campgrounds} />

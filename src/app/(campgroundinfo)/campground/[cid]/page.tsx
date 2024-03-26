@@ -15,7 +15,7 @@ async function campgroundDetailPage({params} : {params: {cid: string}}) {
     const campgroundDetail = await getCampground(params.cid);
 
   return (
-    <main className='text-center p-5'>
+    <main className='text-center p-5 m-12'>
         <h1 className='text-lg font-medium'>{campgroundDetail.data.name}</h1>
         <div className='flex flex-row my-5'>
             <Image src={campgroundDetail.data.picture}

@@ -3,7 +3,7 @@ import BookingList from "@/components/BookingList"
 
 function page() {
   return (
-    <main>
+    <main className="m-16">
         <BookingList></BookingList>
     </main>
   )

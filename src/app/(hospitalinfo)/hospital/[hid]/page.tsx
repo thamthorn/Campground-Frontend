@@ -15,7 +15,7 @@ async function hospitalDetailPage({params} : {params: {hid: string}}) {
     const hospitalDetail = await getHospital(params.hid);
 
   return (
-    <main className='text-center p-5'>
+    <main className='text-center p-5 m-12'>
         <h1 className='text-lg font-medium'>{hospitalDetail.data.name}</h1>
         <div className='flex flex-row my-5'>
             <Image src={hospitalDetail.data.picture}
