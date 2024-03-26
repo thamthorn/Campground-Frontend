@@ -5,14 +5,14 @@ import CardPanel from '@/components/CardPanel';
 import Link from 'next/link';
 
 
-async function hospitalDetailPage({params} : {params: {hid: string}}) {
+async function campgroundDetailPage({params} : {params: {cid: string}}) {
 
     // const hospitalMap = new Map();
     // hospitalMap.set('001', {name: 'Chulalongkorn Hospital', image: '/img/chula.jpg'})
     // hospitalMap.set('002', {name: 'Rajavithi Hospital', image: '/img/rajavithi.jpg'})
     // hospitalMap.set('003', {name: 'Thammasat University Hospital', image: '/img/thammasat.jpg'})
 
-    const campgroundDetail = await getCampground(params.hid);
+    const campgroundDetail = await getCampground(params.cid);
 
   return (
     <main className='text-center p-5'>
@@ -31,7 +31,7 @@ async function hospitalDetailPage({params} : {params: {hid: string}}) {
               <div>{'Tel.No: ' + campgroundDetail.data.tel}</div>
             </div>
 
-            {/* <Link href={`reservation?id=${params.hid}&name=${hospitalDetail.data.name}`}>
+            {/* <Link href={`reservation?id=${params.cid}&name=${hospitalDetail.data.name}`}>
             <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
       shodow-sm text-white' name='Book Vaccine'>Book Vaccine</button>
             </Link> */}
@@ -42,4 +42,4 @@ async function hospitalDetailPage({params} : {params: {hid: string}}) {
   )
 }
 
-export default hospitalDetailPage
+export default campgroundDetailPage
