@@ -11,14 +11,14 @@ function Card({campgroundName, imgSrc, star, onChangeStar}: {campgroundName: str
 
   return (
     <InteractiveCard contentName={campgroundName}>
-      <div className='w-full h-[70%] relative rounded-t-lg'>
+      <div className='w-[40%] h-full relative rounded-lg'>
         <Image src={imgSrc}
         alt='product picture'
         fill={true}
         objectFit='cover'
-        className='object-cover rounded-t-lg'/>
+        className='object-cover rounded-lg'/>
       </div>
-      <div className='w-full h-[15%] p-[16px]'>
+      <div className='w-[40%] h-[15%] p-[16px]'>
         {campgroundName}
         {/* <Rating id={campgroundName + ' Rating'} 
         className='h-[10%] p-[10px]' 
