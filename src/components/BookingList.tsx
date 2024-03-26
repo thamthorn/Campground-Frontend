@@ -17,7 +17,7 @@ function BookingList() {
   return (
     <>
     {
-        bookItems.length == 0 ? <h1 className="text-center m-16">No Vaccine Booking</h1>
+        bookItems.length == 0 ? <h1 className="text-center m-16">No Booking</h1>
         : bookItems.map((bookItem) => (
             <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-2" key={bookItem.id}>
                 <div className="text-xl">{bookItem.name +' '+ bookItem.surname}</div>
