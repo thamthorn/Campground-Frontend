@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 
 
 export default async function DashboardPage () {
+    
     const addCampground = async(addCampgroundForm:FormData) => {
         "use server"
         const Campname = addCampgroundForm.get("Campname")

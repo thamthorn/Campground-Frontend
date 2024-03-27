@@ -31,13 +31,7 @@ function page() {
       }
 
       dispatch(addBooking(item))
-
-      setName('');
-    setLastName('');
-    setCitizenId('');
-    setCampground('');
-    setDate(null);
-
+      alert('booking complete')
     }
     
   }
