@@ -43,25 +43,25 @@ export default async function DashboardPage () {
 
         <main className="bg-slate-100 p-10">
             <div className="m-8 text-center text-4xl font-medium">Your Profile</div>
-<div className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
-    <div className="text-2xl text-center font-semibold">{profile.data.name}</div>
-    <table className="w-full mt-6">
-        <tbody>
-            <tr className="border-b border-gray-200">
-                <td className="py-2 px-4 text-gray-600 font-semibold">Email</td>
-                <td className="py-2 px-4">{profile.data.email}</td>
-            </tr>
-            <tr className="border-b border-gray-200">
-                <td className="py-2 px-4 text-gray-600 font-semibold">Tel.</td>
-                <td className="py-2 px-4">{profile.data.tel}</td>
-            </tr>
-            <tr className="border-b border-gray-200">
-                <td className="py-2 px-4 text-gray-600 font-semibold">Member Since</td>
-                <td className="py-2 px-4">{createAt.toDateString()}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+            <div className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
+                <div className="text-2xl text-center font-semibold">{profile.data.name}</div>
+                <table className="w-full mt-6">
+                    <tbody>
+                        <tr className="border-b border-gray-200">
+                            <td className="py-2 px-4 text-gray-600 font-semibold">Email</td>
+                            <td className="py-2 px-4">{profile.data.email}</td>
+                        </tr>
+                        <tr className="border-b border-gray-200">
+                            <td className="py-2 px-4 text-gray-600 font-semibold">Tel.</td>
+                            <td className="py-2 px-4">{profile.data.tel}</td>
+                        </tr>
+                        <tr className="border-b border-gray-200">
+                            <td className="py-2 px-4 text-gray-600 font-semibold">Member Since</td>
+                            <td className="py-2 px-4">{createAt.toDateString()}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             {
                 (profile.data.role == "admin")?

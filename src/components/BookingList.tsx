@@ -19,11 +19,11 @@ function BookingList() {
     {
         bookItems.length == 0 ? <h1 className="text-center m-16">No Booking</h1>
         : bookItems.map((bookItem) => (
-            <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-2" key={bookItem.id}>
-                <div className="text-xl">{bookItem.name +' '+ bookItem.surname}</div>
-                <div className="text-md">{bookItem.id}</div>
-                <div className="text-sm">{'Time: '+ bookItem.campground}</div>
-                <div className="text-sm">{'Booked at: '+ bookItem.bookDate}</div>
+            <div className="bg-slate-200 rounded px-8 mx-5 py-5 my-2" key={bookItem.id}>
+                <div className="text-xl m-2">{bookItem.name +' '+ bookItem.surname}</div>
+                <div className="text-md m-1">{bookItem.id}</div>
+                <div className="text-sm m-1">{'Time: '+ bookItem.campground}</div>
+                <div className="text-sm m-1">{'Booked at: '+ bookItem.bookDate}</div>
                 <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
       shodow-sm text-white' name='Book Vaccine'
       onClick={() => dispatch(removeBooking(bookItem.id))}>Remove Booking</button>
