@@ -22,10 +22,12 @@ async function TopMenu() {
        right-0 text-cyan-600 text-sm'>Sign-Out of {session.user?.user.name}</div></Link>
       :<Link href="/api/auth/signin"><div className='flex items-center right-0 h-full px-2 left-0 text-cyan-600 text-sm'>Sign-in</div></Link>
       }
+
       <TopmenuItem title='MyBooking' pageRef='/mybooking'/>
       
     </div>
 
+      <TopmenuItem title='Profile' pageRef='/booking/manage' />
       <TopmenuItem title='Booking' pageRef='/booking' />
       <Link href={'/'}>
       <Image src={'/img/campgroundLogo.jpg'}
