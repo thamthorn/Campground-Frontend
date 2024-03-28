@@ -183,6 +183,41 @@ function MyBookingPage() {
     });
   };
 
+  const handleDeleteAll = async () => {
+    Swal.fire({
+      title: "Delete All Confirmation",
+      text: "Are you sure to delete all bookings?",
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      confirmButtonText: "Delete All",
+    }).then(async (res: { isConfirmed: any }) => {
+      if (res.isConfirmed) {
+        try {
+          // Iterate over each booking and delete it
+          for (const booking of bookingList) {
+            await axios.delete<DeleteJSON>(
+              `${config.api}/booking/${booking._id}`,
+              config.headers()
+            );
+          }
+          // Clear the booking list
+          setBookingList([]);
+          Swal.fire({
+            title: "Deleted All Bookings",
+            text: "All bookings have been deleted.",
+            timer: 2000,
+          });
+        } catch (err) {
+          Swal.fire({
+            title: "Deleting Error",
+            text: `Failed to delete bookings: ${err}`,
+            timer: 2000,
+          });
+        }
+      }
+    });
+  }
+
   return (
     <>
       {loading ? (
@@ -262,6 +297,16 @@ function MyBookingPage() {
                 </div>
               ))}
             </div>
+            <div className="flex flex-col items-center w-1/2 m-auto">
+            <h1 className="m-[20px] text-3xl">Dangerous Zone</h1>
+            <button
+                      className="hover:bg-red-600 hover:text-white text-red-500 m-2 py-3 px-4 border border-black-400 rounded-md"
+                      onClick={() => handleDeleteAll()}
+                    >
+                      Delete All Booking
+                    </button>
+            </div>
+            
           </div>
         </div>
       )}
