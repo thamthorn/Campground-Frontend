@@ -96,7 +96,7 @@ function TopMenu() {
       
     </div>
 
-      <TopmenuItem title='Profile' pageRef='/booking/manage' />
+      <TopmenuItem title='Profile' pageRef='/profile' />
       <Link href={'/'}>
       <Image src={'/img/campgroundLogo.jpg'}
       className={styles.logoimg}
