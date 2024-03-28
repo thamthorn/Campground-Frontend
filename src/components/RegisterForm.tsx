@@ -37,7 +37,7 @@ function RegisterForm() {
         });
         // Optionally redirect the user after successful signup
         setTimeout(() => {
-            router.push('/api/auth/signin')
+            router.push('/signin')
         }, 1000)
       } else {
         throw new Error("Sign Up failed.");
@@ -89,7 +89,7 @@ function RegisterForm() {
     </div>
         
     {/* </form> */}
-    <h2  className="mt-5 text-sm text-center">If you already have account <Link href={"/api/auth/signin"} className="text-blue-600">Sign In</Link></h2>
+    <h2  className="mt-5 text-sm text-center">If you already have account <Link href={"/signin"} className="text-blue-600">Sign In</Link></h2>
 </div>
   );
 }
