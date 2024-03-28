@@ -21,7 +21,7 @@ async function CampgroundCatalog({campgroundsJson} : {campgroundsJson: Promise<C
     flexDirection: 'column', alignContent: 'space-around',justifyContent: 'space-around', flexWrap: 'wrap', padding: '10px'}}>
     {
       campgroundJsonReady.data.map((campground: CampgroundItem) => (
-        <Link href={`/campground/${campground.id}`} className='w-full' key={campground.id}>
+        <Link href={`/campground/${campground._id}`} className='w-full' key={campground._id}>
           <div>
           <Card campgroundName={campground.name} imgSrc={campground.picture}/>
 
