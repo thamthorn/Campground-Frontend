@@ -29,23 +29,14 @@ async function campgroundDetailPage({params} : {params: {cid: string}}) {
               <div>{'Price: ' + campgroundDetail.data.price}</div>
               <div>{'Rating: ' + campgroundDetail.data.rating}</div>
               <div>{'Tel.No: ' + campgroundDetail.data.tel}</div>
-
-              <Link href='/booking'>
-              <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-      shodow-sm text-white' name='Book Vaccine'
-      >Book This Campground</button>
-              </Link>
-              
-            
-        </div>
+              <Link href={`/booking?id=${params.cid}&name=${campgroundDetail.data.name}`}>
+                <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+                shodow-sm text-white' name='Book Campground'>Book Campground</button>
+            </Link>
             </div>
 
-            {/* <Link href={`reservation?id=${params.cid}&name=${hospitalDetail.data.name}`}>
-            <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-      shodow-sm text-white' name='Book Vaccine'>Book Vaccine</button>
-            </Link> */}
-
-
+        
+        </div>
 
         
     </main>
