@@ -64,7 +64,7 @@ function SignInForm() {
     
             <div className="flex items-center justify-between my-2">
                 <label className="w-1/3 text-right text-gray-700" htmlFor="price">Password</label>
-                <input type="string" required id="price" name="password" placeholder="Password" className="input-field border-2 border-gray-200 rounded-sm"
+                <input type="password" required id="price" name="password" placeholder="Password" className="input-field border-2 border-gray-200 rounded-sm"
                 onChange={(e) => setPassword(e.target.value)}/>
             </div>
     
