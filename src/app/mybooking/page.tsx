@@ -66,7 +66,7 @@ function page() {
         console.log(err.message)
 
         setTimeout(() => {
-          router.push("api/auth/signin")
+          router.push("/signin")
         }, 1000)
       }
       else{

@@ -12,12 +12,27 @@ import { AppDispatch } from '@/redux/store'
 
 import { addBooking } from '@/redux/features/bookSlice'
 import getCampgrounds from '@/libs/getCampgrounds'
+<<<<<<< HEAD
+import { BookingItem } from '../../../interface'
+||||||| a5e5074
+=======
+import Link from 'next/link'
+>>>>>>> 074e5fd80b5d9a24ae5b19196434cbed7c2ddbf7
 // import { BookingItem } from '../../../interface'
 
 
 function page() {
 
+<<<<<<< HEAD
+  // const dispatch = useDispatch<AppDispatch>()
+||||||| a5e5074
   const dispatch = useDispatch<AppDispatch>()
+=======
+  const urlParams = useSearchParams()
+  const cid = urlParams.get('id')
+  const Name = urlParams.get('name')
+
+>>>>>>> 074e5fd80b5d9a24ae5b19196434cbed7c2ddbf7
 
   const makeBooking = () => {
     if(name && lastName && citizenId && campground && date) {
@@ -58,6 +73,9 @@ function page() {
     <main className='w-[100%] flex flex-col items-center space-y-4 m-16'>
       <div className='text-xl font-medium'>
         Campground Booking
+      </div>
+      <div className='text-xl font-medium'>
+        Campground {Name}
       </div>
       {/* <div className='bg-slate-100 rounded-lg'>
       <div className='text-2xl text-center'>{profile.data.name}</div>
