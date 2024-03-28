@@ -23,13 +23,9 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
 
-        
-        
           <TopMenu />
           {children}
-        
-        
-        
+          
       </body>
     </html>
   )
