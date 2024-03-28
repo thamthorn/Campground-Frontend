@@ -17,6 +17,7 @@ import {
   DeleteJSON,
 } from "../../../interface";
 import Loading from "@/components/Loading";
+import Link from "next/link";
 
 function MyBookingPage() {
   const [bookingList, setBookingList] = useState<BookingItem[]>([
@@ -297,14 +298,22 @@ function MyBookingPage() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-col items-center w-1/2 m-auto">
+            <div className="absolute bottom-4 right-4">
+              <Link href="/campground">
+                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                  Book More
+                </button>
+              </Link>
+            </div>
+
+            
            
 
             {
               bookingList.length === 0 ?(
              ''
               ): (
-                <div>
+                <div className="flex flex-col items-center w-1/2 m-auto">
                 <h1 className="m-[20px] text-3xl">Dangerous Zone</h1>
                 <button
                 className="hover:bg-red-600 hover:text-white text-red-500 m-2 py-3 px-4 border border-black-400 rounded-md"
@@ -317,7 +326,7 @@ function MyBookingPage() {
 
             }
             
-            </div>
+            
             
           </div>
         </div>
