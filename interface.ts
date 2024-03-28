@@ -54,16 +54,9 @@ export interface UserJSON {
   data: {
     _id: string;
     name: string;
-    email: string;
-    tel: string;
-    role: string;
-    createdAt: string;
-    __v:number
-  };
+    surname: string;
+    id: string;
+    campground: string;
+    bookDate: string;
+  }
 }
-
-export interface DeleteJSON {
-  success: boolean;
-  data: Object
-}
-

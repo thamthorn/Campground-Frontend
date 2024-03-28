@@ -3,10 +3,7 @@ import { Inter } from 'next/font/google'
 import TopMenu from '@/components/TopMenu'
 
 import './globals.css'
-import { getServerSession } from 'next-auth'
-import { authOptions } from './api/auth/[...nextauth]/route'
-import NextAuthProvider from '@/providers/NextAuthProvider'
-import ReduxProvider from '@/redux/ReduxProvider'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,13 +18,13 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  const NextAuthSession = await getServerSession(authOptions);
 
   return (
     <html lang="en">
       <body className={inter.className}>
 
-        <ReduxProvider>
+        
+      <ReduxProvider>
         <NextAuthProvider session={ NextAuthSession }>
           <TopMenu />
           {children}
