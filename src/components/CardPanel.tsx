@@ -5,7 +5,6 @@ import styles from './cardpanel.module.css'
 import { useReducer } from 'react';
 import Link from 'next/link';
 import getCampgrounds from '@/libs/getCampgrounds';
-import { CampgroundJson } from '../../interface';
 // import { HospitalJson } from '../../interface';
 
 

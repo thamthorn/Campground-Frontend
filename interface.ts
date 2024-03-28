@@ -1,4 +1,4 @@
-export interface CampgroundItem {
+interface CampgroundItem {
   _id: string,
   name: string,
   address: string,
@@ -8,7 +8,7 @@ export interface CampgroundItem {
   picture: string
 }
 
-export interface CampgroundJson {
+interface CampgroundJson {
   map(arg0: (campground: any) => import("react").JSX.Element): import("react").ReactNode;
   success: boolean,
   count: number,
@@ -16,7 +16,7 @@ export interface CampgroundJson {
   data: CampgroundItem[]
 }
 
-export interface BookingItem {
+interface BookingItem {
   _id: string;
   apptDate: string;
   user:{
@@ -33,18 +33,18 @@ export interface BookingItem {
   }
 }
 
-export interface UserRole {
+interface UserRole {
 _id: string,
 role: string
 }
 
-export interface BookingListJSON {
+interface BookingListJSON {
 success: boolean,
 count: number,
 data: BookingItem[];
 }
 
-export interface UserJSON {
+interface UserJSON {
 message: string | undefined;
 success: boolean;
 data: {
@@ -59,7 +59,7 @@ data: {
 }
 }
 
-export interface DeleteJSON {
+interface DeleteJSON {
   success: boolean;
   data: Object
 }

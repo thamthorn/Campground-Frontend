@@ -10,7 +10,6 @@ import axios from 'axios';
 import config from '@/utils/config';
 import { useRouter } from 'next/navigation';
 import getCampground from '@/libs/getCampground';
-import { CampgroundItem } from '../../../../interface';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import Image from 'next/image';
