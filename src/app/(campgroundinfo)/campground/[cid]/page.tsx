@@ -3,6 +3,7 @@ import Image from 'next/image'
 import getCampground from '@/libs/getCampground';
 import CardPanel from '@/components/CardPanel';
 import Link from 'next/link';
+import { Rating } from '@mui/material';
 
 
 async function campgroundDetailPage({params} : {params: {cid: string}}) {
@@ -27,8 +28,9 @@ async function campgroundDetailPage({params} : {params: {cid: string}}) {
             <div className='flex flex-col justify-evenly text-md mx-5 text-left'>
               <div>{'Address: ' + campgroundDetail.data.address}</div>
               <div>{'Price: ' + campgroundDetail.data.price}</div>
-              <div>{'Rating: ' + campgroundDetail.data.rating}</div>
               <div>{'Tel.No: ' + campgroundDetail.data.tel}</div>
+              <Rating className='my-1' name="read-only" value={parseInt(campgroundDetail.data.rating.toString())} readOnly />
+
               <Link href={`/booking/${params.cid}`}>
                 <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
                 shodow-sm text-white' name='Book Campground'>Book Campground</button>
