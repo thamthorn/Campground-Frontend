@@ -60,8 +60,7 @@ function TopMenu() {
   }
 
   const handleRegister = async () => {
-    // Sign in logic
-    // After successful sign-in:
+    // Register logic
     router.push('/register');
 }
   
@@ -79,15 +78,15 @@ function TopMenu() {
       </div>
       } */}
       {isLoggedIn ? (
-                    <button onClick={handleSignOut} className="m-[5px] px-4 py-1 border border-gray-400 hover:bg-gray-400 hover:text-white text-center text-[12px] md:text-[14px] text-gray-400 hover:text-white">
+                    <button onClick={handleSignOut} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
                         Sign Out
                     </button>
                 ) : (
-                  <div>
-                    <button  onClick={handleSignIn} className="m-[5px] px-4 py-1 border border-gray-400 hover:bg-gray-400 hover:text-white text-center text-[12px] md:text-[14px] text-gray-400 hover:text-white">
+                  <div className='flex flex-row justify-center'>
+                    <button  onClick={handleSignIn} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
                         Sign In
                     </button>
-                    <button  onClick={handleRegister} className="m-[5px] px-4 py-1 border border-gray-400 hover:bg-gray-400 hover:text-white text-center text-[12px] md:text-[14px] text-gray-400 hover:text-white">
+                    <button  onClick={handleRegister} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
                         Register
                     </button>
                   </div>
