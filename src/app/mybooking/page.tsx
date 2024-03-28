@@ -115,7 +115,7 @@ function MyBookingPage() {
       showCancelButton: true,
       cancelButtonText: "Cancel",
       confirmButtonText: "Edit",
-    }).then(async (res) => {
+    }).then(async (res: { isConfirmed: any; }) => {
       if (res.isConfirmed) {
         try {
           const response = await axios.delete<DeleteJSON>(
@@ -153,7 +153,7 @@ function MyBookingPage() {
       showCancelButton: true,
       cancelButtonText: "Cancel",
       confirmButtonText: "Delete",
-    }).then(async (res) => {
+    }).then(async (res: { isConfirmed: any; }) => {
       if (res.isConfirmed) {
         try {
           const response = await axios.delete<DeleteJSON>(
@@ -190,23 +190,23 @@ function MyBookingPage() {
       ) : (
         <div className="h-[90vh] w-full mt-[10vh]">
           <div className="container mx-auto lg:w-full min-h-screen px-10 lg:px-0 pt-10">
-            <p className="text-center text-gray-600 text-[36px] md:text-[48px] py-4">
+            <p className="text-center text-gray-800 text-[36px] md:text-[48px] py-4">
               All Booking History
             </p>
 
             {bookingList.length === 0 ? (
-              <div className="border border-gray-200 p-4 px-8 mt-4  hover:bg-gray-100  bg-white block text-left">
+              <div className="border border-yellow-200 p-4 px-8 mt-4  hover:bg-red-50  bg-white block text-left">
                 <p className="font-semibold mt-1">
-                  Booking in history is empty.
+                  You don't have any Booking.
                 </p>
                 <button
-                  className="hover:bg-gray-400 hover:text-white text-gray-400 my-2 py-1 px-4 border border-gray-400"
+                  className="hover:bg-green-400 hover:text-black text-gray-400 m-2 py-1 px-4 border border-black-400 rounded-md"
                   onClick={(e) => {
                     e.stopPropagation;
                     router.push("/campground");
                   }}
                 >
-                  make new booking
+                  make your first booking
                 </button>
               </div>
             ) : (

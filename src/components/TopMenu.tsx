@@ -29,7 +29,7 @@ function TopMenu() {
           showCancelButton: true,
           confirmButtonText: "Logout",
           cancelButtonText: "Cancel"
-      }).then(async (result) => {
+      }).then(async (result: { isConfirmed: any; }) => {
           if (result.isConfirmed) {
               const response = await axios.get(`${config.api}/auth/logout`)
               console.log(response)

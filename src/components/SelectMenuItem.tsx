@@ -1,6 +1,7 @@
 import getCampgrounds from '@/libs/getCampgrounds';
 import { MenuItem } from '@mui/material';
 import React from 'react'
+import { CampgroundItem } from '../../interface';
 
 async function SelectMenuItem() {
 

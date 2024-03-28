@@ -5,6 +5,7 @@ import styles from './cardpanel.module.css'
 import { useReducer } from 'react';
 import Link from 'next/link';
 import getCampgrounds from '@/libs/getCampgrounds';
+import { CampgroundJson } from '../../interface';
 // import { HospitalJson } from '../../interface';
 
 
@@ -67,7 +68,7 @@ function CardPanel() {
   return (
     <div>
     <div className={styles.cardContainer}>
-        {campgroundResponse.data.map((campground) => (
+        {campgroundResponse.data.map((campground: { hid: React.Key | null | undefined; campground: string; imgSrc: string; }) => (
             <Link href={`/campground/${campground.hid}`} className='w-1/5'>
                 <Card campgroundName={campground.campground}
             imgSrc={campground.imgSrc} star={starMap.get(campground.campground) ?? 5}
