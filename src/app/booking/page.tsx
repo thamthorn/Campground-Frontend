@@ -13,10 +13,15 @@ import { AppDispatch } from '@/redux/store'
 
 import { addBooking } from '@/redux/features/bookSlice'
 import getCampgrounds from '@/libs/getCampgrounds'
+import Link from 'next/link'
 // import { BookingItem } from '../../../interface'
 
 
 function page() {
+
+  const urlParams = useSearchParams()
+  const cid = urlParams.get('id')
+  const Name = urlParams.get('name')
 
   const dispatch = useDispatch<AppDispatch>()
 
@@ -59,6 +64,9 @@ function page() {
     <main className='w-[100%] flex flex-col items-center space-y-4 m-16'>
       <div className='text-xl font-medium'>
         Campground Booking
+      </div>
+      <div className='text-xl font-medium'>
+        Campground {Name}
       </div>
       {/* <div className='bg-slate-100 rounded-lg'>
       <div className='text-2xl text-center'>{profile.data.name}</div>
