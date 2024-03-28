@@ -33,9 +33,8 @@ function DateReserve({onChangeDate, onChangeCampground}: {onChangeDate: Function
             <MenuItem value={'17:00-17:30'}>18:00-18:30</MenuItem>
             <MenuItem value={'17:00-17:30'}>18:30-19:00</MenuItem>
              
-             
         </Select>
-      
+
     </div>
   )
 }

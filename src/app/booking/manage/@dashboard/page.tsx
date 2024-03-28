@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 
 
 export default async function DashboardPage () {
+    
     const addCampground = async(addCampgroundForm:FormData) => {
         "use server"
         const Campname = addCampgroundForm.get("Campname")
@@ -40,19 +41,28 @@ export default async function DashboardPage () {
     var createAt = new Date(profile.data.createdAt);
     return (
 
-        <main className="bg-slate-100">
-            <div className="m-8 text-center text-4xl font-medium">Your Dashboard</div>
-            <div className='bg-slate-100 rounded-lg'>
-            <div className='text-2xl text-center'>{profile.data.name}</div>
-            <table className='table-auto border-separate border-spacing-2'>
-                <tbody>
-                <tr><td>Email</td><td>{profile.data.email}</td></tr>
-                <tr><td>Tel.</td><td>{profile.data.tel}</td></tr>
-                <tr><td>Member Since</td><td>{createAt.toString()}</td></tr>
-                </tbody>
-            </table>
-            
+        <main className="bg-slate-100 p-10">
+            <div className="m-8 text-center text-4xl font-medium">Your Profile</div>
+            <div className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
+                <div className="text-2xl text-center font-semibold">{profile.data.name}</div>
+                <table className="w-full mt-6">
+                    <tbody>
+                        <tr className="border-b border-gray-200">
+                            <td className="py-2 px-4 text-gray-600 font-semibold">Email</td>
+                            <td className="py-2 px-4">{profile.data.email}</td>
+                        </tr>
+                        <tr className="border-b border-gray-200">
+                            <td className="py-2 px-4 text-gray-600 font-semibold">Tel.</td>
+                            <td className="py-2 px-4">{profile.data.tel}</td>
+                        </tr>
+                        <tr className="border-b border-gray-200">
+                            <td className="py-2 px-4 text-gray-600 font-semibold">Member Since</td>
+                            <td className="py-2 px-4">{createAt.toDateString()}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
             {
                 (profile.data.role == "admin")?
                 <form action={addCampground}>
