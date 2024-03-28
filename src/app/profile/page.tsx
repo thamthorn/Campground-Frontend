@@ -56,27 +56,27 @@ export default function ProfilePage() {
   return (
     <main>
       {user ? (
-  <div className="fixed inset-0 flex justify-center items-center bg-white">
-    <div className="p-6 bg-[#F7F6BB] rounded-lg shadow-md text-lg hover:shadow-lg transition duration-300 w-full max-w-xl">
-      <h1 className="text-3xl font-semibold mb-4">Your Profile</h1>
-      <div className="border-b border-gray-200 mb-4"></div>
-      <p className="text-gray-700 mb-2">
-        <span className="font-semibold">Name:</span> {user.data.name}
-      </p>
-      <p className="text-gray-700 mb-2">
-        <span className="font-semibold">Email:</span> {user.data.email}
-      </p>
-      <p className="text-gray-700 mb-2">
-        <span className="font-semibold">Tel:</span> {user.data.tel}
-      </p>
-      <p className="text-gray-700 mb-2">
-        <span className="font-semibold">Role:</span> {user.data.role}
-      </p>
-    </div>
-  </div>
-) : (
-  <p>Loading user profile...</p>
-)}
+        <div className="fixed inset-0 flex justify-center items-center bg-white">
+          <div className="p-6 bg-[#F7F6BB] rounded-lg shadow-md text-lg hover:shadow-lg transition duration-300 w-full max-w-xl">
+            <h1 className="text-3xl font-semibold mb-4">Your Profile</h1>
+            <div className="border-b border-gray-200 mb-4"></div>
+            <p className="text-gray-700 mb-2">
+              <span className="font-semibold">Name:</span> {user.data.name}
+            </p>
+            <p className="text-gray-700 mb-2">
+              <span className="font-semibold">Email:</span> {user.data.email}
+            </p>
+            <p className="text-gray-700 mb-2">
+              <span className="font-semibold">Tel:</span> {user.data.tel}
+            </p>
+            <p className="text-gray-700 mb-2">
+              <span className="font-semibold">Role:</span> {user.data.role}
+            </p>
+          </div>
+        </div>
+      ) : (
+        <p>Loading user profile...</p>
+      )}
     </main>
   );
 }
