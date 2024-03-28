@@ -3,7 +3,6 @@ import DateReserve from '@/components/DateReserve'
 import React, { useState } from 'react'
 import { Select, TextField } from '@mui/material'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../api/auth/[...nextauth]/route'
 import getUserProfile from '@/libs/getUserProfile'
 
 import { useSearchParams } from 'next/navigation'
@@ -13,12 +12,13 @@ import { AppDispatch } from '@/redux/store'
 
 import { addBooking } from '@/redux/features/bookSlice'
 import getCampgrounds from '@/libs/getCampgrounds'
+import { BookingItem } from '../../../interface'
 // import { BookingItem } from '../../../interface'
 
 
 function page() {
 
-  const dispatch = useDispatch<AppDispatch>()
+  // const dispatch = useDispatch<AppDispatch>()
 
   const makeBooking = () => {
     if(name && lastName && citizenId && campground && date) {
