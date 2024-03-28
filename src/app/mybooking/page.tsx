@@ -115,7 +115,7 @@ function MyBookingPage() {
       showCancelButton: true,
       cancelButtonText: "Cancel",
       confirmButtonText: "Edit",
-    }).then(async (res: { isConfirmed: any; }) => {
+    }).then(async (res: { isConfirmed: any }) => {
       if (res.isConfirmed) {
         try {
           const response = await axios.delete<DeleteJSON>(
@@ -153,7 +153,7 @@ function MyBookingPage() {
       showCancelButton: true,
       cancelButtonText: "Cancel",
       confirmButtonText: "Delete",
-    }).then(async (res: { isConfirmed: any; }) => {
+    }).then(async (res: { isConfirmed: any }) => {
       if (res.isConfirmed) {
         try {
           const response = await axios.delete<DeleteJSON>(
@@ -213,58 +213,55 @@ function MyBookingPage() {
               ""
             )}
 
-
             <div className="m-[20px] flex flex-row flex-wrap content-around justify-center">
-            {bookingList.map((booking) => (
-              <div
-                key={booking._id}
-                className="border border-yellow-300 p-4 px-8 m-[20px] hover:bg-red-50 bg-white rounded-lg w-1/5"
-              >
-                <div className="w-full pr-4">
-                  <h2 className="text-gray-600 text-lg font-semibold">
-                    {booking.campground.name}
-                  </h2>
-                  <p className="text-gray-500 my-2">
-                    <LocationOnIcon className="inline-block text-yellow-400 mr-2" />{" "}
-                    {booking.campground.address}
-                  </p>
-                  <p className="text-gray-500 my-2">
-                    <LocalPhoneIcon className="inline-block text-green-500 mr-2" />{" "}
-                    {booking.campground.tel}
-                  </p>
-                  <p className="text-gray-500 my-2">
-                    <CalendarMonthIcon className="inline-block text-gray-400 mr-2" />{" "}
-                    {formatDate(booking.apptDate)}
-                  </p>
-                  {user.role === "admin" && (
-                    <p className="text-gray-700 my-2">
-                      <PersonIcon className="inline-block text-blue-400 mr-2" />{" "}
-                      {booking.user.name}
+              {bookingList.map((booking) => (
+                <div
+                  key={booking._id}
+                  className="border border-yellow-300 p-4 px-8 m-[20px] hover:bg-red-50 bg-white rounded-lg w-1/5"
+                >
+                  <div className="w-full pr-4">
+                    <h2 className="text-gray-600 text-lg font-semibold">
+                      {booking.campground.name}
+                    </h2>
+                    <p className="text-gray-500 my-2">
+                      <LocationOnIcon className="inline-block text-yellow-400 mr-2" />{" "}
+                      {booking.campground.address}
                     </p>
-                  )}
-                </div>
-                <div className="w-full flex justify-end items-center">
-                  <button
-                    className="hover:bg-green-200 hover:text-black text-gray-400 m-2 py-1 px-4 border border-gray-400 rounded-md"
-                    onClick={() =>
-                      handleEditClick(booking._id, booking.campground._id)
-                    }
-                  >
-                    Edit
-                  </button>
+                    <p className="text-gray-500 my-2">
+                      <LocalPhoneIcon className="inline-block text-green-500 mr-2" />{" "}
+                      {booking.campground.tel}
+                    </p>
+                    <p className="text-gray-500 my-2">
+                      <CalendarMonthIcon className="inline-block text-gray-400 mr-2" />{" "}
+                      {formatDate(booking.apptDate)}
+                    </p>
+                    {user.role === "admin" && (
+                      <p className="text-gray-700 my-2">
+                        <PersonIcon className="inline-block text-blue-400 mr-2" />{" "}
+                        {booking.user.name}
+                      </p>
+                    )}
+                  </div>
+                  <div className="w-full flex justify-end items-center">
+                    <button
+                      className="hover:bg-green-200 hover:text-black text-gray-400 m-2 py-1 px-4 border border-gray-400 rounded-md"
+                      onClick={() =>
+                        handleEditClick(booking._id, booking.campground._id)
+                      }
+                    >
+                      Edit
+                    </button>
 
-                  <button
-                    className="hover:bg-red-400 hover:text-black text-gray-400 m-2 py-1 px-4 border border-black-400 rounded-md"
-                    onClick={() => handleDelete(booking._id)}
-                  >
-                    Delete
-                  </button>
+                    <button
+                      className="hover:bg-red-400 hover:text-black text-gray-400 m-2 py-1 px-4 border border-black-400 rounded-md"
+                      onClick={() => handleDelete(booking._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-              
+              ))}
             </div>
-            
           </div>
         </div>
       )}
