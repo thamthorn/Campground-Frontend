@@ -16,15 +16,18 @@ import Loading from '@/components/Loading';
 function MyBookingPage() {
   const [bookingList, setBookingList] = useState<BookingItem[]>([{
     _id: "",
-    apptdate: "",
+    apptDate: "",
     user:{
       _id: "",
       name: "",
     },
     campground: {
+      _id:"",
       name: "",
       address: "",
       tel: "",
+      rating: 0,
+      price: 0
     }
   }]);
   const [user, setUser] = useState<UserRole>(Object);
@@ -93,8 +96,40 @@ function MyBookingPage() {
     return date.toLocaleDateString(undefined, options);
   };
 
-  const handleEditClick = (bid: string) => {
-    router.push(`/mybooking/edit/${bid}`)
+  const handleEditClick = (bid: string, cid: string) => {
+    Swal.fire({
+      title: "Edit Confirmation",
+      text: "Are you sure to edit this booking",
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      confirmButtonText: "Edit"
+    }).then(async (res) => {
+      if (res.isConfirmed) {
+        try {
+          const response = await axios.delete<DeleteJSON>(`${config.api}/booking/${bid}`, config.headers())
+          if (response.data.success === true) {
+            // Swal.fire({
+            //   title: "Deleted Booking",
+            //   text: "Booking has been deleted.",
+            //   timer: 2000
+            // })
+
+            // delete target item from array bookingList
+            setBookingList(prevList => prevList.filter(item => item._id !== bid))
+            router.push(`/booking/${cid}`)
+
+          }
+        } catch (err) {
+          Swal.fire({
+            title: "Edit Error",
+            text: `edut failed: ${err}`,
+            timer: 2000
+          })
+        }
+      }
+    })
+
+    
   }
 
   const handleDelete = (bid: string) => {
@@ -107,7 +142,7 @@ function MyBookingPage() {
     }).then(async (res) => {
       if (res.isConfirmed) {
         try {
-          const response = await axios.delete<DeleteJSON>(`${config.api}/bookings/${bid}`, config.headers())
+          const response = await axios.delete<DeleteJSON>(`${config.api}/booking/${bid}`, config.headers())
           if (response.data.success === true) {
             Swal.fire({
               title: "Deleted Booking",
@@ -159,7 +194,7 @@ function MyBookingPage() {
                   <LocalPhoneIcon className='text-gray-400' /> {booking.campground.tel}
                 </p>
                 <p className='text-gray-400 my-2'>
-                  <CalendarMonthIcon className='text-gray-400' /> {formatDate(booking.apptdate)}
+                  <CalendarMonthIcon className='text-gray-400' /> {formatDate(booking.apptDate)}
                 </p>
                 {
                   user.role === "admin" ?
@@ -169,7 +204,7 @@ function MyBookingPage() {
                     : ''
                 }
                 <button className="hover:bg-gray-400 hover:text-white text-gray-400 m-2 py-1 px-4 border border-gray-400"
-                  onClick={() => handleEditClick(booking._id)}
+                  onClick={() => handleEditClick(booking._id, booking.campground._id)}
                 >Edit</button>
 
                 <button className="hover:bg-gray-400 hover:text-white text-gray-400 m-2 py-1 px-4 border border-gray-400"

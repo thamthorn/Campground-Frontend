@@ -19,7 +19,7 @@ function TopMenu() {
     useEffect(() => {
         const token = localStorage.getItem('token');
         setIsLoggedIn(!!token); // Update isLoggedIn based on token presence
-    }, []);
+    }, [isLoggedIn]);
 
     const handleSignOut = () => {
 
