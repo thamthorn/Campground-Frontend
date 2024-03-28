@@ -23,7 +23,6 @@ function page() {
   const cid = urlParams.get('id')
   const Name = urlParams.get('name')
 
-  const dispatch = useDispatch<AppDispatch>()
 
   const makeBooking = () => {
     if(name && lastName && citizenId && campground && date) {

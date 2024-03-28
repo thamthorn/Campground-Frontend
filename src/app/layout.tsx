@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import TopMenu from '@/components/TopMenu'
 
 import './globals.css'
+import ReduxProvider from '@/redux/ReduxProvider'
+import NextAuthProvider from '@/providers/NextAuthProvider'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,12 +26,8 @@ export default async function RootLayout({
       <body className={inter.className}>
 
         
-      <ReduxProvider>
-        <NextAuthProvider session={ NextAuthSession }>
           <TopMenu />
           {children}
-        </NextAuthProvider>
-        </ReduxProvider>
         
         
       </body>
