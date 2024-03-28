@@ -319,7 +319,7 @@ function MyBookingPage() {
              ''
               ): (
                 <div className="flex flex-col items-center w-1/2 m-auto">
-                <h1 className="m-[20px] text-3xl">Dangerous Zone</h1>
+
                 <button
                 className="hover:bg-red-600 hover:text-white text-red-500 m-2 py-3 px-4 border border-black-400 rounded-md"
                 onClick={() => handleDeleteAll()}
