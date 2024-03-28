@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { BookingItem } from "../../../interface";
 // import { BookingItem } from "../../../interface"
 
 type BookState = {
@@ -13,7 +14,7 @@ export const bookSlice = createSlice({
     reducers: {
         addBooking: (state, action: PayloadAction<BookingItem>) => {
             const newBooking = action.payload;
-            const existingBookingIndex = state.bookItems.findIndex(item => item.id === newBooking.id);
+            const existingBookingIndex = state.bookItems.findIndex(item => item._id === newBooking._id);
             if (existingBookingIndex !== -1) {
                 // If booking with the same user already exists, replace it
                 state.bookItems.splice(existingBookingIndex, 1, newBooking);
@@ -24,7 +25,7 @@ export const bookSlice = createSlice({
         },
         removeBooking: (state, action: PayloadAction<string>) => {
             const userIdToRemove = action.payload;
-            state.bookItems = state.bookItems.filter(item => item.id !== userIdToRemove);
+            state.bookItems = state.bookItems.filter(item => item._id !== userIdToRemove);
         }
     }
 })
