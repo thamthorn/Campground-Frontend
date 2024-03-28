@@ -110,7 +110,7 @@ function BookingPage({ params }: { params: { cid: string } }) {
       ) : (
         <div className="mt-[10vh] p-0 m-0 w-screen h-[90vh]">
           <p className="text-[48px] pt-6 text-green-900 text-center mb-10 font-semibold font-mono">
-            Book Your Rest
+            Book Your Camp
           </p>
           <div className="flex flex-row px-12 place-content-center">
             <div className="w-[30%] md:h-auto text-green-900 px-5 text-left">
