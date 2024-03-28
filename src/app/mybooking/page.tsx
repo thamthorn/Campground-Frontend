@@ -191,7 +191,7 @@ function MyBookingPage() {
         <div className="h-[90vh] w-full mt-[10vh]">
           <div className="container mx-auto lg:w-1/2 min-h-screen px-10 lg:px-0 pt-10">
             <p className="text-center text-gray-600 text-[36px] md:text-[48px] py-4">
-              Booking History
+              All Booking History
             </p>
 
             {bookingList.length === 0 ? (
@@ -216,32 +216,34 @@ function MyBookingPage() {
             {bookingList.map((booking) => (
               <div
                 key={booking._id}
-                className="border border-gray-200 p-4 px-8 mt-4 hover:bg-gray-100 bg-white block rounded-lg"
+                className="flex flex-row border border-yellow-300 p-4 px-8 mt-4 hover:bg-red-50 bg-white rounded-lg"
               >
-                <h2 className="text-gray-600 text-lg font-semibold">
-                  {booking.campground.name}
-                </h2>
-                <p className="text-gray-400 my-2">
-                  <LocationOnIcon className="inline-block text-gray-400 mr-2" />{" "}
-                  {booking.campground.address}
-                </p>
-                <p className="text-gray-400 my-2">
-                  <LocalPhoneIcon className="inline-block text-gray-400 mr-2" />{" "}
-                  {booking.campground.tel}
-                </p>
-                <p className="text-gray-400 my-2">
-                  <CalendarMonthIcon className="inline-block text-gray-400 mr-2" />{" "}
-                  {formatDate(booking.apptDate)}
-                </p>
-                {user.role === "admin" && (
-                  <p className="text-gray-400 my-2">
-                    <PersonIcon className="inline-block text-gray-400 mr-2" />{" "}
-                    {booking.user.name}
+                <div className="w-1/2 pr-4">
+                  <h2 className="text-gray-600 text-lg font-semibold">
+                    {booking.campground.name}
+                  </h2>
+                  <p className="text-gray-500 my-2">
+                    <LocationOnIcon className="inline-block text-yellow-400 mr-2" />{" "}
+                    {booking.campground.address}
                   </p>
-                )}
-                <div className="flex justify-end mt-4">
+                  <p className="text-gray-500 my-2">
+                    <LocalPhoneIcon className="inline-block text-green-500 mr-2" />{" "}
+                    {booking.campground.tel}
+                  </p>
+                  <p className="text-gray-500 my-2">
+                    <CalendarMonthIcon className="inline-block text-gray-400 mr-2" />{" "}
+                    {formatDate(booking.apptDate)}
+                  </p>
+                  {user.role === "admin" && (
+                    <p className="text-gray-700 my-2">
+                      <PersonIcon className="inline-block text-blue-400 mr-2" />{" "}
+                      {booking.user.name}
+                    </p>
+                  )}
+                </div>
+                <div className="w-1/2 flex justify-end items-center">
                   <button
-                    className="hover:bg-gray-400 hover:text-white text-gray-400 m-2 py-1 px-4 border border-gray-400 rounded-md"
+                    className="hover:bg-green-200 hover:text-black text-gray-400 m-2 py-1 px-4 border border-gray-400 rounded-md"
                     onClick={() =>
                       handleEditClick(booking._id, booking.campground._id)
                     }
@@ -250,7 +252,7 @@ function MyBookingPage() {
                   </button>
 
                   <button
-                    className="hover:bg-red-400 hover:text-white text-gray-400 m-2 py-1 px-4 border border-gray-400 rounded-md"
+                    className="hover:bg-red-400 hover:text-black text-gray-400 m-2 py-1 px-4 border border-black-400 rounded-md"
                     onClick={() => handleDelete(booking._id)}
                   >
                     Delete
