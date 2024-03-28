@@ -105,16 +105,14 @@ function BookingPage({params}:{params:{cid:string}}) {
                 <Loading/>
             ):(
                 <div className='mt-[10vh] p-0 m-0 w-screen h-[90vh]'>
-                    <p className='text-[48px] pt-6 text-gray-600 text-center mb-10'>Book Your Rest</p>
-                <div className="flex flex-row px-12">
-                    <Image src={campground.picture} alt="Campground Image" width={0} height={0} sizes="100vw" className="w-[30%] h-auto rounded-md"></Image>
-
-                <div className="w-[70%] md:h-auto text-gray-400 px-5 text-left">
+                    <p className='text-[48px] pt-6 text-green-900 text-center mb-10 font-semibold font-mono'>Book Your Rest</p>
+                <div className="flex flex-row px-12 place-content-center">
+                <div className="w-[30%] md:h-auto text-green-900 px-5 text-left">
                     
 
                                 
                             <div>
-                                <h2 className='text-[18px] text-gray-500'>{campground.name}</h2>
+                                <h2 className='text-[18px] text-green-900'>{campground.name}</h2>
                                 <div className="text-[16px]  mt-8">{'Adress: '+campground.address}</div>
                                 <div className="text-[16px]"><LocalPhoneIcon/> {campground.tel}</div>
                                 <div className="text-[16px]">Price : {campground.price.toString()}</div>
@@ -138,10 +136,11 @@ function BookingPage({params}:{params:{cid:string}}) {
                                     </LocalizationProvider>
                                 </FormControl>
                                 <div className="form-control mt-6">
-                                    <button className="hover:bg-gray-400 hover:text-white text-gray-400 py-1 px-4 border border-gray-400 rounded-md" type="button" onClick={handleBooking}>Confirm</button>
+                                    <button className="hover:bg-green-900 hover:text-white text-green-900 py-1 px-4 border border-gray-400 rounded-md" type="button" onClick={handleBooking}>Confirm</button>
                                 </div>
                             </form>            
                         </div>
+                        <Image src={campground.picture} alt="Campground Image" width={0} height={0} sizes="100vw" className="w-[30%] h-auto rounded-md"></Image>
                     </div>
                 </div>
             )

@@ -91,7 +91,7 @@ function TopMenu() {
                     </button>
                   </div>
                 )}
-
+      <TopmenuItem title='Home' pageRef='/'/>
       <TopmenuItem title='MyBooking' pageRef='/mybooking'/>
       
     </div>
