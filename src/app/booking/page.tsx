@@ -31,7 +31,13 @@ function page() {
       }
 
       dispatch(addBooking(item))
-      alert('booking complete')
+
+      setName('');
+    setLastName('');
+    setCitizenId('');
+    setCampground('');
+    setDate(null);
+
     }
     
   }
@@ -48,7 +54,7 @@ function page() {
   const [citizenId, setCitizenId] = useState<string | null>(null);
   const [campground, setCampground] = useState<string | null>(null)
   const [date, setDate] = useState<Dayjs | null>(null);
-  
+
   return (
     <main className='w-[100%] flex flex-col items-center space-y-4 m-16'>
       <div className='text-xl font-medium'>
