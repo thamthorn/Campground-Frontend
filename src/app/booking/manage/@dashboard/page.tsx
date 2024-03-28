@@ -34,15 +34,15 @@ export default async function DashboardPage () {
         revalidateTag("campgrounds")
         redirect("/campground")
     }
-    const session = await getServerSession(authOptions);
-        if(!session || !session.user.token) return null
+    // const session = await getServerSession(authOptions);
+    //     if(!session || !session.user.token) return null
 
-    const profile = await getUserProfile(session.user.token)
-    var createAt = new Date(profile.data.createdAt);
+    // const profile = await getUserProfile(session.user.token)
+    // var createAt = new Date(profile.data.createdAt);
     return (
 
         <main className="bg-slate-100 p-10">
-            <div className="m-8 text-center text-4xl font-medium">Your Profile</div>
+            {/* <div className="m-8 text-center text-4xl font-medium">Your Profile</div>
             <div className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
                 <div className="text-2xl text-center font-semibold">{profile.data.name}</div>
                 <table className="w-full mt-6">
@@ -61,7 +61,7 @@ export default async function DashboardPage () {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> */}
 
             {
                 (profile.data.role == "admin")?

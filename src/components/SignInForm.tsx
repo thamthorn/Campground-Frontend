@@ -55,6 +55,7 @@ function SignInForm() {
         <h1 className="text-4xl font-bold">Login</h1>
         {/* <form className="mt-8 w-full max-w-md" onSubmit={onSubmit}> */}
         <div className="mt-8 w-full max-w-md">
+            <form onSubmit={handleSubmit}>
             <div className="flex items-center justify-between my-2">
                 <label className="w-1/3 text-right text-gray-700 " htmlFor="address">Email</label>
                 <input type="email" required id="email" name="email" placeholder="Email" className="input-field border-2 border-gray-200 rounded-sm" 
@@ -64,15 +65,16 @@ function SignInForm() {
     
             <div className="flex items-center justify-between my-2">
                 <label className="w-1/3 text-right text-gray-700" htmlFor="price">Password</label>
-                <input type="string" required id="price" name="password" placeholder="Password" className="input-field border-2 border-gray-200 rounded-sm"
+                <input type="password" required id="price" name="password" placeholder="Password" className="input-field border-2 border-gray-200 rounded-sm"
                 onChange={(e) => setPassword(e.target.value)}/>
             </div>
     
     
             <div className="flex flex-row justify-center">
-            <button className="rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2 mt-4 text-white items-center" onClick={handleSubmit}>Login</button>
-    
+            <button className="rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2 mt-4 text-white items-center" type='submit'>Login</button>
+            
             </div>
+            </form>
         </div>
     </div>
     );
