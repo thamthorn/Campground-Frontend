@@ -189,7 +189,7 @@ function MyBookingPage() {
         <Loading />
       ) : (
         <div className="h-[90vh] w-full mt-[10vh]">
-          <div className="container mx-auto lg:w-1/2 min-h-screen px-10 lg:px-0 pt-10">
+          <div className="container mx-auto lg:w-full min-h-screen px-10 lg:px-0 pt-10">
             <p className="text-center text-gray-600 text-[36px] md:text-[48px] py-4">
               All Booking History
             </p>
@@ -213,12 +213,14 @@ function MyBookingPage() {
               ""
             )}
 
+
+            <div className="m-[20px] flex flex-row flex-wrap content-around justify-center">
             {bookingList.map((booking) => (
               <div
                 key={booking._id}
-                className="flex flex-row border border-yellow-300 p-4 px-8 mt-4 hover:bg-red-50 bg-white rounded-lg"
+                className="border border-yellow-300 p-4 px-8 m-[20px] hover:bg-red-50 bg-white rounded-lg w-1/5"
               >
-                <div className="w-1/2 pr-4">
+                <div className="w-full pr-4">
                   <h2 className="text-gray-600 text-lg font-semibold">
                     {booking.campground.name}
                   </h2>
@@ -241,7 +243,7 @@ function MyBookingPage() {
                     </p>
                   )}
                 </div>
-                <div className="w-1/2 flex justify-end items-center">
+                <div className="w-full flex justify-end items-center">
                   <button
                     className="hover:bg-green-200 hover:text-black text-gray-400 m-2 py-1 px-4 border border-gray-400 rounded-md"
                     onClick={() =>
@@ -260,6 +262,9 @@ function MyBookingPage() {
                 </div>
               </div>
             ))}
+              
+            </div>
+            
           </div>
         </div>
       )}
