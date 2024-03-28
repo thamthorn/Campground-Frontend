@@ -100,7 +100,7 @@ function page() {
         const response = await axios.delete<DeleteJSON>(`${config.api}/bookings/${bid}`, config.headers());
         if (response.data.success === true) {
           // Delete target item from array bookingList
-          setBookingList(prevList => prevList.filter(item => item.id !== bid));
+          setBookingList(prevList => prevList.filter(item => item._id !== bid));
         }
       } catch (err) {
         console.error("Delete failed:", err);
@@ -123,19 +123,19 @@ function page() {
         }
 
 {bookingList.map((booking) => (
-              <div key={booking.id} className="border border-gray-200 p-4 px-8 mt-4  hover:bg-gray-100  bg-white block text-left">
-                <h2 className='text-gray-600 text-lg'>{booking.name}</h2>
+              <div key={booking._id} className="border border-gray-200 p-4 px-8 mt-4  hover:bg-gray-100  bg-white block text-left">
+                <h2 className='text-gray-600 text-lg'>{booking.user.name}</h2>
                 
                 
                 <p className='text-gray-400 my-2'>
-                  {formatDate(booking.bookDate)}
+                  {formatDate(booking.apptdate)}
                 </p>
 
               
             
 
                 <button className="hover:bg-gray-400 hover:text-white text-gray-400 m-2 py-1 px-4 border border-gray-400"
-                  onClick={() => handleDelete(booking.id)}
+                  onClick={() => handleDelete(booking._id)}
                 >Delete</button>
               </div>
             ))}
