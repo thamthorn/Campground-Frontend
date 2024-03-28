@@ -5,9 +5,7 @@ export interface CampgroundItem {
   tel: string,
   price: Number,
   rating: Number,
-  picture: string,
-  v: number,
-  id: string
+  picture: string
 }
 
 export interface CampgroundJson {
@@ -26,15 +24,12 @@ export interface BookingItem {
     name: string;
   }
   campground: {
-    _id: string;
     name: string;
     address: string;
     tel: string;
-    id: string
-
+    price: number;
+    rating: number;
   }
-  createdAt: string;
-  v: string
 }
 
 export interface UserRole {
@@ -60,4 +55,9 @@ data: {
   bookDate: string;
   role: string;
 }
+}
+
+export interface DeleteJSON {
+  success: boolean;
+  data: Object
 }
