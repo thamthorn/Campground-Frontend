@@ -1,5 +1,5 @@
 async function userRegister(formData: Object) {
-    const response = await fetch('http://localhost:5000/api/v1/auth/register', {
+    const response = await fetch('https://presentation-day-1-duckdaan.vercel.app/api/v1/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
