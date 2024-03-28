@@ -25,3 +25,16 @@ interface BookingItem {
     campground: string;
     bookDate: string;
   }
+
+  enum Role {
+    User = 'user',
+    Admin = 'admin'
+  }
+
+  interface RegisterJson {
+    name: string,
+    tel: string,
+    email: string,
+    role: string,
+    password: string
+  }

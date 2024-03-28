@@ -1,27 +1,34 @@
 'use client'
-import userRegister from "@/libs/userRegister"
-import { FormEvent, useState } from "react";
-function Register() {
+import userRegister from "@/libs/userRegister";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+
+
+function page() {
+    const router = useRouter()
+
+    const [name, setName] = useState<string>("")
+    const [email, setEmail] = useState<string>("")
+    const [tel, setTel] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+
     
 
-    async function onSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
-     
-        let formData = new FormData(event.currentTarget)
-        // console.log(formData)
-        // let jsonObject = {};
-        // for (let [key, value] of formData.entries()) {
-        //     jsonObject[key] = value;
-        // }
+    const onSubmit = async () => {
+        if (name && email && tel && password) {
+            const userRegisterJson = JSON.parse(JSON.stringify({name: name, email: email, tel: tel, password: password}))
+            const res = await userRegister(userRegisterJson, Role.User);
+                
+                if (res.success) {
+                    router.push("/")
+                } else {
+                    alert("Failed to register")
+                }
 
-        // console.log(jsonObject);
-        const response = await userRegister(formData)
-     
-        // Handle response if necessary
-        const data = await response.json()
-        console.log(data);
-        // ...
-      }
+        } else alert("Please fill in all fields")
+    }
 
     
 
@@ -29,40 +36,44 @@ function Register() {
 
     <div className="flex flex-col justify-center items-center h-screen">
     <h1 className="mt-14 text-4xl font-bold">Register User</h1>
-    <form className="mt-8 w-full max-w-md" onSubmit={onSubmit}>
+    {/* <form className="mt-8 w-full max-w-md" onSubmit={onSubmit}> */}
+    <div className="mt-8 w-full max-w-md">
         <div className="flex items-center justify-between my-2">
             <label className="w-1/3 text-right text-gray-700" htmlFor="Campname">Name</label>
             <input type="text" required id="name" name="name" placeholder="Name" className="input-field border-2 border-gray-200 rounded-sm" 
-            />
+            onChange={(e) => setName(e.target.value)}/>
         </div>
 
         <div className="flex items-center justify-between my-2">
             <label className="w-1/3 text-right text-gray-700 " htmlFor="address">Email</label>
-            <input type="text" required id="email" name="email" placeholder="Email" className="input-field border-2 border-gray-200 rounded-sm" 
-            />
+            <input type="email" required id="email" name="email" placeholder="Email" className="input-field border-2 border-gray-200 rounded-sm" 
+            onChange={(e) => setEmail(e.target.value)}/>
         </div>
 
         <div className="flex items-center justify-between my-2">
             <label className="w-1/3 text-right text-gray-700" htmlFor="tel">Tel</label>
             <input type="text" required id="tel" name="tel" placeholder="Telephone Number" className="input-field border-2 border-gray-200 rounded-sm" 
-            />
+            onChange={(e) => setTel(e.target.value)}/>
         </div>
 
         <div className="flex items-center justify-between my-2">
             <label className="w-1/3 text-right text-gray-700" htmlFor="price">Password</label>
             <input type="string" required id="price" name="password" placeholder="Password" className="input-field border-2 border-gray-200 rounded-sm"
-            />
+            onChange={(e) => setPassword(e.target.value)}/>
         </div>
 
 
         <div className="flex flex-row justify-center">
-        <button className="rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2 mt-4 text-white items-center" type="submit">Register</button>
+        <button className="rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2 mt-4 text-white items-center" onClick={onSubmit}>Register</button>
 
         </div>
-    </form>
+    </div>
+        
+    {/* </form> */}
+    <h2  className="mt-5 text-sm text-center">If you already have account <Link href={"/api/auth/signin"} className="text-blue-600">Sign In</Link></h2>
 </div>
 
   )
 }
 
-export default Register
+export default page
