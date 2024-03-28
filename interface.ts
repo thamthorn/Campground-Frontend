@@ -51,7 +51,8 @@ data: {
   _id: string;
   name: string;
   surname: string;
-  id: string;
+  email: string;
+  tel: string;
   campground: string;
   bookDate: string;
   role: string;

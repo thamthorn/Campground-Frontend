@@ -1,48 +1,64 @@
-
 "use client"
-
-// export default function ManageProfile() {
-//     return (
-//         <main className="flex justify-center items-center h-screen">
-//             <div className="text-center text-lg">
-//                 Your Profile
-
-//             </div>
-//         </main>
-//     )
-// }
-
-
 import { useEffect, useState } from 'react';
 import getUserProfile from '../../libs/getUserProfile';
 import { UserJSON } from '../../../interface';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import config from '@/utils/config';
+import { useRouter } from 'next/navigation';
 
-export default function ProfilePage({ token }: { token: string }) {
+export default function ProfilePage() {
     const [user, setUser] = useState<UserJSON | null>(null);
+    const [loading, setLoading] = useState<boolean>(true)
+
+    const router = useRouter();
 
     useEffect(() => {
-        const fetchUserProfile = async () => {
-            try {
-                const userProfile = await getUserProfile(token);
-                setUser(userProfile);
-            } catch (error) {
-                console.error('Failed to fetch user profile:', error);
-            }
-        };
+        setLoading(true)
+        fetchUser();
+    }, []);
 
-        fetchUserProfile();
-    }, [token]);
+    const fetchUser = async () => {
+        try {
+          const response = await axios.get<UserJSON>(`${config.api}/auth/me`, config.headers());
+          if (response.data.success === true) {
+            setUser(response.data)
+            setLoading(false)
+    
+          } else {
+            throw new Error(response.data.message)
+          }
+        } catch (err: any) {
+            if(err.message==="Request failed with status code 401"){
+                Swal.fire({
+                    title: "Authorized failed",
+                    text: "Please login before booking a campground",
+                    timer: 2000
+                })
+    
+                setTimeout(() => {
+                    router.push("/signin")
+                }, 500)
+            }else{
+                Swal.fire({
+                    title: "Error",
+                    text: err.message,
+                    timer: 2000
+                })
+                router.push("/")
+            }
+            console.log(err.message)
+        }
+    }
 
     return (
         <main>
             {user ? (
-                <div>
+                <div className='mt-[100px]'>
                     <h1>Your Profile</h1>
                     <p>Name: {user.data.name}</p>
-                    <p>Surname: {user.data.surname}</p>
-                    <p>ID: {user.data.id}</p>
-                    <p>Campground: {user.data.campground}</p>
-                    <p>Book Date: {user.data.bookDate}</p>
+                    <p>Email: {user.data.email}</p>
+                    <p>Tel: {user.data.tel}</p>
                     <p>Role: {user.data.role}</p>
                 </div>
             ) : (
