@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { FormControl} from '@mui/material';
+import { FormControl, Rating} from '@mui/material';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import config from '@/utils/config';
@@ -104,22 +104,25 @@ function BookingPage({params}:{params:{cid:string}}) {
             loading?(
                 <Loading/>
             ):(
-                <div className='bg-white mt-[10vh] justify-between items-center p-0 m-0 w-screen h-[90vh]'>
-                <div className="flex flex-col md:flex-row px-12">
-                    <Image src={campground.picture} alt="Campground Image" width={0} height={0} sizes="100vw" className="w-full h-[30vh] md:w-[30%] md:h-auto"></Image>
+                <div className='mt-[10vh] p-0 m-0 w-screen h-[90vh]'>
+                    <p className='text-[48px] pt-6 text-gray-600 text-center mb-10'>Book Your Rest</p>
+                <div className="flex flex-row px-12">
+                    <Image src={campground.picture} alt="Campground Image" width={0} height={0} sizes="100vw" className="w-[30%] h-auto rounded-md"></Image>
 
-                <div className="md:w-[70%] md:h-auto text-gray-400 pt-[5%] md:px-5 text-left">
-                    <p className='text-[36px] md:text-[48px] pt-6 text-gray-600'>Book Your Rest</p>
+                <div className="w-[70%] md:h-auto text-gray-400 px-5 text-left">
+                    
 
                                 
                             <div>
                                 <h2 className='text-[18px] text-gray-500'>{campground.name}</h2>
-                                <div className="text-[16px]  mt-12">{'Adress: '+campground.address}</div>
-                                {/* <div className="text-[16px] "><LocalPostOfficeIcon/> {campground.postalcode}</div> */}
+                                <div className="text-[16px]  mt-8">{'Adress: '+campground.address}</div>
                                 <div className="text-[16px]"><LocalPhoneIcon/> {campground.tel}</div>
-                                <div className="text-[16px]"> {campground.price.toString()}</div>
-                                <div className="text-[16px]"> {campground.rating.toString()}</div>
-
+                                <div className="text-[16px]">Price : {campground.price.toString()}</div>
+                                <div className="flex items-center text-[16px]">
+                                <div className="mr-2">Rating :</div>
+                                <Rating className='my-1' name="read-only" value={parseFloat(campground.rating.toString())} readOnly />
+                                </div>
+                                
                             </div>
                         
                             <form className="card-body">
@@ -135,7 +138,7 @@ function BookingPage({params}:{params:{cid:string}}) {
                                     </LocalizationProvider>
                                 </FormControl>
                                 <div className="form-control mt-6">
-                                    <button className="hover:bg-gray-400 hover:text-white text-gray-400 py-1 px-4 border border-gray-400" type="button" onClick={handleBooking}>Confirm</button>
+                                    <button className="hover:bg-gray-400 hover:text-white text-gray-400 py-1 px-4 border border-gray-400 rounded-md" type="button" onClick={handleBooking}>Confirm</button>
                                 </div>
                             </form>            
                         </div>
