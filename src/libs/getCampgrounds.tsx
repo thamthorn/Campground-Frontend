@@ -1,6 +1,6 @@
 import Campground from "@/db/models/Campgrounds";
 
-async function getCampground() {
+async function getCampgrounds() {
 
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
@@ -11,4 +11,4 @@ async function getCampground() {
     return await response.json();
 }
 
-export default getCampground
+export default getCampgrounds
