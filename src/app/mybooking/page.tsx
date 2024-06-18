@@ -236,11 +236,11 @@ function MyBookingPage() {
 
             {bookingList.length === 0 ? (
               <div className="border border-yellow-200 p-4 px-8 mt-4  hover:bg-red-50  bg-white block text-left">
-                <p className="font-semibold mt-1">
+                <p className="font-semibold mt-1 text-black">
                   You don't have any Booking.
                 </p>
                 <button
-                  className="hover:bg-green-400 hover:text-black text-gray-400 m-2 py-1 px-4 border border-black-400 rounded-md"
+                  className="hover:bg-green-400 hover:text-black text-gray-400 m-2 py-1 px-4 border border-black-400 rounded-md "
                   onClick={(e) => {
                     e.stopPropagation;
                     router.push("/campground");

@@ -18,7 +18,7 @@ function Card({campgroundName, imgSrc, star, onChangeStar}: {campgroundName: str
         objectFit='cover'
         className='object-cover rounded-lg'/>
       </div>
-      <div className='w-[40%] h-[15%] p-[16px] text-4xl'>
+      <div className='w-[40%] h-[15%] p-[16px] text-4xl text-black'>
         {campgroundName}
         {/* <Rating id={campgroundName + ' Rating'} 
         className='h-[10%] p-[10px]' 

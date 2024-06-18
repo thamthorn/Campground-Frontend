@@ -5,7 +5,7 @@ import PromoteCard from '@/components/PromoteCard'
 
 export default function Home() {
   return (
-    <main >
+    <main style={{backgroundColor: 'white'}}>
       <Banner />
       <PromoteCard></PromoteCard>
     </main>

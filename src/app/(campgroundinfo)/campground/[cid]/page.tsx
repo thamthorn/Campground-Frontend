@@ -26,9 +26,9 @@ async function campgroundDetailPage({params} : {params: {cid: string}}) {
             sizes='100vh'
             className='rounded-lg w-[30%] bg-black'/>
             <div className='flex flex-col justify-evenly text-md mx-5 text-left'>
-              <div>{'Address: ' + campgroundDetail.data.address}</div>
-              <div>{'Price: ' + campgroundDetail.data.price}</div>
-              <div>{'Tel.No: ' + campgroundDetail.data.tel}</div>
+              <div className='text-black font-bold'>{'Address: ' + campgroundDetail.data.address}</div>
+              <div className='text-black'>{'Price: ' + campgroundDetail.data.price}</div>
+              <div className='text-black'>{'Tel.No: ' + campgroundDetail.data.tel}</div>
               <Rating className='my-1' name="read-only" value={parseInt(campgroundDetail.data.rating.toString())} readOnly />
 
               <Link href={`/booking/${params.cid}`}>

@@ -31,10 +31,10 @@ function page() {
 
   return (
     <main>
-      <h1 className='text-center text-4xl p-10 m-12'>Select your campgrounds</h1>
+      <h1 className='text-center text-4xl p-10 m-12 text-black'>Select your campgrounds</h1>
       <Suspense fallback={<p>Loading...<LinearProgress/></p>}>
         {loading ? (
-          <p>Loading...</p>
+          <p className='text-black text-center'>Loading...</p>
         ) : (
           <CampgroundCatalog campgroundsJson={campgrounds} />
         )}

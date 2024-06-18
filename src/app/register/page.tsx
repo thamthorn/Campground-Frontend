@@ -9,7 +9,7 @@ import { useState } from "react";
 function page() {
     
     return (
-    <div className='h-[90vh] w-full'>
+    <div className='h-[90vh] w-full bg-white'>
         <RegisterForm />
     </div>
     )

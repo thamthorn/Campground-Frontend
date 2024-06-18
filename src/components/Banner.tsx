@@ -26,24 +26,19 @@ function Banner() {
       style={{opacity: 0.6}}/>
 
       <div>
-      <h1 className='relative top-12 text-3xl text-center font-semibold font-mono'>Campground Service Center</h1>
+      <h1 className='relative top-12 text-3xl text-center font-semibold font-mono text-black'>Campground Service Center</h1>
 
       </div>
 
       
       <div className='relative top-12 z-20 text-center m-10'>
-        <h3 className='text-xl font serif '>Escape the city and embrace nature at our Campground.</h3>
+        <h3 className='text-xl font serif text-black'>Escape the city and embrace nature at our Campground.</h3>
         
       </div>
-      {/* {
-        session? <div className='z-30 absolute top-16 right-10 font-semibold text-cyan-800 text-xl'>
-          Welcome {session.user?.user.name}
-        </div>:null
-      } */}
 
 
       <button className='bg-white text-black-600 border border-black-500 text-5xl
-      font-semibold py-2 px-2 m-2 rounded-lg z-30 absolute bottom-0 right-0 hover:bg-teal-900 hover:text-white hover:border-transparent'
+      font-semibold py-2 px-2 m-2 rounded-lg z-30 absolute bottom-0 right-0 hover:bg-teal-900 hover:text-white hover:border-transparent text-black'
       onClick={(e) => {e.stopPropagation(); router.push('/campground')}}>Book Now!!</button>
       
 

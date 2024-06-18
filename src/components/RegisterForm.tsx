@@ -54,30 +54,30 @@ function RegisterForm() {
 
   return (
 <div className="flex flex-col justify-center items-center h-screen">
-    <h1 className="mt-14 text-4xl font-bold">Register User</h1>
+    <h1 className="mt-14 text-4xl font- text-black">Register User</h1>
     {/* <form className="mt-8 w-full max-w-md" onSubmit={onSubmit}> */}
     <div className="mt-8 w-full max-w-md">
         <div className="flex items-center justify-between my-2">
             <label className="w-1/3 text-right text-gray-700" htmlFor="Campname">Name</label>
-            <input type="text" required id="name" name="name" placeholder="Name" className="input-field border-2 border-gray-200 rounded-sm" 
+            <input type="text" required id="name" name="name" placeholder="Name" className="input-field border-2 border-gray-200 rounded-sm bg-white text-black" 
             onChange={(e) => setName(e.target.value)}/>
         </div>
 
         <div className="flex items-center justify-between my-2">
             <label className="w-1/3 text-right text-gray-700 " htmlFor="address">Email</label>
-            <input type="email" required id="email" name="email" placeholder="Email" className="input-field border-2 border-gray-200 rounded-sm" 
+            <input type="email" required id="email" name="email" placeholder="Email" className="input-field border-2 border-gray-200 rounded-sm bg-white text-black" 
             onChange={(e) => setEmail(e.target.value)}/>
         </div>
 
         <div className="flex items-center justify-between my-2">
             <label className="w-1/3 text-right text-gray-700" htmlFor="tel">Tel</label>
-            <input type="text" required id="tel" name="tel" placeholder="Telephone Number" className="input-field border-2 border-gray-200 rounded-sm" 
+            <input type="text" required id="tel" name="tel" placeholder="Telephone Number" className="input-field border-2 border-gray-200 rounded-sm bg-white text-black" 
             onChange={(e) => setTel(e.target.value)}/>
         </div>
 
         <div className="flex items-center justify-between my-2">
             <label className="w-1/3 text-right text-gray-700" htmlFor="price">Password</label>
-            <input type="string" required id="price" name="password" placeholder="Password" className="input-field border-2 border-gray-200 rounded-sm"
+            <input type="string" required id="price" name="password" placeholder="Password" className="input-field border-2 border-gray-200 rounded-sm bg-white text-black"
             onChange={(e) => setPassword(e.target.value)}/>
         </div>
 
@@ -89,7 +89,7 @@ function RegisterForm() {
     </div>
         
     {/* </form> */}
-    <h2  className="mt-5 text-sm text-center">If you already have account <Link href={"/signin"} className="text-blue-600">Sign In</Link></h2>
+    <h2  className="mt-5 text-sm text-center text-black">If you already have account <Link href={"/signin"} className="text-blue-600">Sign In</Link></h2>
 </div>
   );
 }

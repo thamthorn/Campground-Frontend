@@ -15,7 +15,7 @@ async function CampgroundCatalog({campgroundsJson} : {campgroundsJson: Promise<C
 
   return (
     <>
-    <h3 className='text-center'>Explore {campgroundJsonReady.count} Campgrounds in our list</h3>
+    <h3 className='text-center text-black'>Explore {campgroundJsonReady.count} Campgrounds in our list</h3>
     {/* Explore {campgroundJsonReady.count} hospitals in our list */}
     <div style={{margin: '20px', display: 'flex',
     flexDirection: 'column', alignContent: 'space-around',justifyContent: 'space-around', flexWrap: 'wrap', padding: '10px'}}>
