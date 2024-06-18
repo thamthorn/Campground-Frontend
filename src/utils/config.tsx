@@ -1,5 +1,5 @@
 const config = {
-    api: "https://presentation-day-1-duckdaan.vercel.app/api/v1",
+    api: "https://campground-backend-tau.vercel.app/api/v1",
     tokenName: 'token',
     headers: () => {
         return {
