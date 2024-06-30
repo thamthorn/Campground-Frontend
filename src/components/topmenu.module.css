@@ -13,6 +13,20 @@
     flex-direction: row;
 }
 
+.bg-white {
+    background-color: white;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Fixed positioning to cover the whole screen */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column; /* Organizes children in a column */
+    justify-content: center; /* Centers children vertically */
+    align-items: center; /* Centers children horizontally */
+    z-index: 50; /* Higher z-index to be on top */
+}
+
 .logoimg {
     height: 100%;
     width: auto;

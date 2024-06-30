@@ -38,7 +38,7 @@ function Banner() {
 
 
       <button className='bg-white text-black-600 border border-black-500 text-5xl
-      font-semibold py-2 px-2 m-2 rounded-lg z-30 absolute bottom-0 right-0 hover:bg-teal-900 hover:text-white hover:border-transparent text-black'
+      font-semibold py-2 px-2 m-2 rounded-lg z-20 absolute bottom-0 right-0 hover:bg-teal-900 hover:text-white hover:border-transparent text-black'
       onClick={(e) => {e.stopPropagation(); router.push('/campground')}}>Book Now!!</button>
       
 

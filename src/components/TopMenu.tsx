@@ -9,16 +9,30 @@ import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import config from '@/utils/config';
+import { IconMenu2, IconX } from '@tabler/icons-react';
 
 
 function TopMenu() {
   const router = useRouter()
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+
 
     useEffect(() => {
         const token = localStorage.getItem('token');
         setIsLoggedIn(!!token); // Update isLoggedIn based on token presence
+
+        const handleResize = () => {
+          setIsMobile(window.innerWidth < 768); // Example breakpoint at 768px
+        };
+    
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Set initial state
+    
+        return () => window.removeEventListener('resize', handleResize);
     }, [isLoggedIn]);
 
     const handleSignOut = () => {
@@ -57,46 +71,79 @@ function TopMenu() {
       // Sign in logic
       // After successful sign-in:
       router.push('/signin');
+      setMenuOpen(false)
   }
 
   const handleRegister = async () => {
     // Register logic
     router.push('/register');
+    setMenuOpen(false)
 }
+
+  const toggleMenu = () => {
+    setMenuOpen(true)
+  }
   
   // const profile = await getUserProfile(session.user.token)
 
   return (
     <div className={styles.menucontainer}>
-      <div className='flex flex-row absolute left-0 h-full'>
-    {/* {
-      session? <Link href="/api/auth/signout"><div className='flex items-center left-0 h-full px-2 
-       right-0 text-cyan-600 text-sm'>Sign-Out of {session.user?.user.name}</div></Link>
-      :<div className='flex m-2'>
-      <Link href="/api/auth/signin"><div className='flex items-center right-0 h-full px-2 left-0 text-cyan-600 text-sm'>Log-in</div></Link>
-      <Link href="api/auth/register" className='flex items-center right-0 h-full px-2 left-0 text-cyan-600 text-sm'>Register</Link>
+    {
+      isMobile ? 
+      <div className='flex flex-row absolute left-0 h-full items-center ml-2'
+       onClick={toggleMenu}>
+        <IconMenu2 stroke={2} color='gray' />
       </div>
-      } */}
-      {isLoggedIn ? (
-                    <button onClick={handleSignOut} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
-                        Sign Out
-                    </button>
-                ) : (
-                  <div className='flex flex-row justify-center'>
-                    <button  onClick={handleSignIn} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
-                        Sign In
-                    </button>
-                    <button  onClick={handleRegister} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
-                        Register
-                    </button>
-                  </div>
-                )}
-      <TopmenuItem title='Home' pageRef='/'/>
-      <TopmenuItem title='MyBooking' pageRef='/mybooking'/>
-      
+      :
+      <div className='flex flex-row absolute left-0 h-full'>
+        {isLoggedIn ? (
+            <button onClick={handleSignOut} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
+                Sign Out
+            </button>
+        ) : (
+          <div className='flex flex-row justify-center'>
+            <button  onClick={handleSignIn} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
+                Sign In
+            </button>
+            <button  onClick={handleRegister} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
+                Register
+            </button>
+          </div>
+        )}
+      <TopmenuItem title='Home' pageRef='/' onClick={() => setMenuOpen(false)}/>
+      <TopmenuItem title='MyBooking' pageRef='/mybooking' onClick={() => setMenuOpen(false)}/>
     </div>
 
-      <TopmenuItem title='Profile' pageRef='/profile' />
+    }
+      {menuOpen && (
+        <div className='fixed inset-0 bg-white z-50 flex flex-col items-center justify-center'>
+          <IconX stroke={2} color='gray' style={{position: 'absolute', left: 20, top: 20}} onClick={() => setMenuOpen(false)}/>
+          <div>
+            {isLoggedIn ? (
+                <button onClick={handleSignOut} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
+                    Sign Out
+                </button>
+            ) : (
+              <div className='flex flex-col justify-center'>
+                <button onClick={handleSignIn} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
+                    Sign In
+                </button>
+                <button onClick={handleRegister} className="m-[5px] px-4 py-1 text-gray-500 hover:text-[#059669] text-center text-[12px] md:text-[14px]">
+                    Register
+                </button>
+              </div>
+            )}
+            <div className='flex flex-col gap-3 mt-2'>
+            <TopmenuItem title='Home' pageRef='/' onClick={() => setMenuOpen(false)}/>
+            <TopmenuItem title='MyBooking' pageRef='/mybooking' onClick={() => setMenuOpen(false)}/>
+            </div>
+            
+          </div>
+          
+        </div>
+      )}
+      
+      <TopmenuItem title='Profile' pageRef='/profile' onClick={() => setMenuOpen(false)}/>
       <Link href={'/'}>
       <Image src={'/img/campgroundLogo.jpg'}
       className={styles.logoimg}
